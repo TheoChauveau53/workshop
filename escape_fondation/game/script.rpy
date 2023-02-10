@@ -85,9 +85,13 @@ transform Robert:
     xzoom 1 yzoom 1
     xpos.2 ypos .3
 
-transform Robert2 :
-    xzoom 1 yzoom 1
-    xpos.4 ypos .3    
+transform Robert2:
+    xzoom 0.75 yzoom 0.75
+    xpos .1 ypos .4
+
+# transform Robert2 :
+#     xzoom 1 yzoom 1
+#     xpos.4 ypos .3
 
 transform cadavre:
     xzoom 1 yzoom 1
@@ -1026,7 +1030,9 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
-    show baleine at baleine 
+    hide Robert
+    show Robert at Robert2
+    show baleine at baleine
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":

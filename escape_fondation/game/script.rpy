@@ -93,6 +93,10 @@ transform fin1:
     xzoom 2 yzoom 2
     xpos.1 ypos.3
 
+transform verre:
+    xzoom 1 yzoom 1
+    xpos .3 ypos .3    
+
 
 # transform Robert2 :
 #     xzoom 1 yzoom 1
@@ -126,6 +130,8 @@ init:
     image arme = "/images/monsters/arme.png"
     image sansmains = "/images/monsters/sansmains.png"
     image scientifique ="/images/monsters/scientifique.png"
+    image garde ="/images/monsters/garde.png"
+    image verre ="/images/monsters/verre.png"
 
     $ timer_range = 0
     $ timer_jump = 0
@@ -360,16 +366,15 @@ label se_cacher:
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
-    scene bg salledepause at shaking, truecenter
+    scene bg salledepause 
     d "Aïe."
     scene bg salledepause
 
+    scene bg salledepause 
     show garde at garde
     show Robert at Robert
-
-    scene bg salledepause at shaking, truecenter
     g1 "Qui est là ?"
-    scene bg salledepause
+    
 
     $ time = 10
     $ timer_range = 10
@@ -378,6 +383,8 @@ label se_cacher:
 
     o "Que faites-vous ?"
     menu:
+        # show garde at garde
+        # show Robert at Robert
         "Ne rien dire/faire":
             hide screen countdown
             jump rien_dire
@@ -398,7 +405,7 @@ label couloir_cri:
     o "Un garde envoie des prisonniers dans une cellule ou se trouve un sorte de
         d'entité en forme de statue."
     hide garde
-    hide garde2Fv
+    hide garde2 
     o "Sur le mur à votre gauche se trouve un levier, ainsi qu'un gros bouton.
         Il n'y a pas d'indication sur ce que font ni le lever, ni le bouton."
     o "Vous trouvez une carte magnétique de niveau 1 posée à côté du bouton."
@@ -685,9 +692,14 @@ label armes_cacher:
     jump stop_fouille
 
 label abattre:
-    o "Vous êtes blessé, vous devez vous reposer cependant vous n’êtes pas dans un lieu sûr. "
+    hide Robert
+    hide cadavre
+    o "Vous êtes blessé, vous devez vous reposer cependant vous n’êtes pas dans un lieu sûr.
+    Vous entendez des gardes arriver au loin. "
     menu:
         "Demander pitié au garde":
+            show garde at garde
+            show garde2 at garde2
             d "Pitié monsieur laissez moi tranquille"
             jump pitie
         "Se reposer quand même":
@@ -747,9 +759,18 @@ label pourquoi:
 label reposer:
     o "Le temps que vous vous reposiez de nouveaux gardes sont arrivés et vous ont pourchassé,
         vous commencez à fuir cependant, ils continuent de vous suivre."
+    show garde at garde
+    show garde2 at garde2
+
     o "Au bout de quelques minutes, ils commencent à vous rattraper, vous êtes fatigué."
+
+    hide garde
+    hide garde2
+    scene bg monstre
+    
     o "Vous tombez dans les pommes et à votre réveil vous êtes attaché sur une chaise dans une grande salle.
         Vous commencez à entendre des gros bruits et à apercevoir une ombre au loin. "
+    show verre at verre
     o "L'ombre se rapprochant de plus en plus laissant place à une silhouette abominable. Une sorte d'énorme
         ver commence à se rapprocher et soudain vous saute dessus."
     o " C'est la fin, vous finissez dans son estomac."

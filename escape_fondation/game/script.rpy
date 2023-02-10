@@ -1,4 +1,4 @@
-﻿# Vous pouvez placer le script de votre jeu dans ce fichier.
+# Vous pouvez placer le script de votre jeu dans ce fichier.
 
 # Déclarez sous cette ligne les images, avec l'instruction 'image'
 # ex: image eileen heureuse = "eileen_heureuse.png"
@@ -153,6 +153,7 @@ label start:
     with dissolve
 
     if not dead_once:
+        play sound "/audio/alert_reset_V2.mp3"
         o "Qu'est ce que je fais ici ?"
         o "Qu'est ce qu'il m'arrive ?"
         d "D-123 ?"
@@ -162,6 +163,7 @@ label start:
         o "Mais le plus toublant se trouve juste en face de vous :"
         o "Un cadavre vous ressemblant en tout point tel un jumeau."
     else:
+        play sound "/audio/alert_reset_V2.mp3"
         o "..."
         d "Qu'est ce que je fais ici ?"
         o "Vous vous réveillez dans la même salle que la d'où vous venez."

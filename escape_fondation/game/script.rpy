@@ -334,7 +334,7 @@ label couloir_oppose:
 
     $ time = 10
     $ timer_range = 10
-    $ timer_jump = 'dead_reset' #TODO quoi ici
+    $ timer_jump = 'pas_bouger
     show screen countdown
     menu:
         "Prendre la porte":
@@ -343,6 +343,10 @@ label couloir_oppose:
         "Se cacher":
             hide screen countdown
             jump se_cacher
+
+label pas_bouger:
+    g1 "Hé toi ! Qu'est ce que tu fais la ?"
+    jump rien_dire
 
 label se_cacher:
     scene bg salledepause
@@ -503,7 +507,7 @@ label bebette:
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
-    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier 
+    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier
     sans vie."
 
     scene bg bonbon
@@ -667,6 +671,7 @@ label abattre:
             jump reposer
         "Fuire la salle de pause":
             jump porte_gauche
+
 label rien_dire:
     o "Un des gardes prit en joue son collègue et l’abattit sèchement."
     play sound "/audio/bruit_tire_rafale.mp3"
@@ -889,7 +894,8 @@ label attaquer_sans_arme:
 label attaquer_arme_porte:
     o "Vous rouvrez la porte et sortez votre arme."
     play sound "audio/bruit_sort_et_tire_arme.mp3"
-    o "Vous butez les gardes, bien ouèj"
+    o "Vous parvenez a tuer les gardes de manière in extremis."
+    o ""
     jump dead_reset # TODO lier avec theo
 
 label appuie_bouton:

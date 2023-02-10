@@ -505,6 +505,7 @@ label allie_pas_patient:
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
     o "Votre co-détenu saigne, il se vide de son sang. Ses cris d'agonie font
         résonner la pièce."
+    scene bg bonbon
     o "L'homme s'écroule net au sol, puni de sa gourmandise."
     o "Vous avez bien fait de ne pas vous précipiter."
 
@@ -678,7 +679,9 @@ label folie:
 
     o "Vous errez"
     o "Vous devienne fou, la scène a laquelle vous venez d'assiter était des plus atroces."
+    scene couloir2 at shaking, truecenter
     o "Vous entendez du bruit venir de derrière vous, le big toutou est de retour."
+    scene couloir2
     o "Il y a derrière vous un gros chien, et devant vous se trouve un cul de sac."
     o "A votre gauche, il y a une porte derrière laquelle vous entendez du bruit, le
         stress vous empêche de déterminer ce qu'il y a derrière la porte."
@@ -698,9 +701,13 @@ label folie:
 
 label get_bouffed:
     o "Vous aimez tant ce chien que vous finissez par lui faire un câlin d'amour."
+    scene couloir2 at shaking, truecenter
     o "Lui aussi exprime son amour envers vous, en vous déchiquetant le bras."
+    scene couloir2
     o "puis l'autre"
+    scene couloir2 at shaking, truecenter
     o "puis une jambe"
+    scene couloir2
     o "puis l'autre"
 
     jump dead_reset

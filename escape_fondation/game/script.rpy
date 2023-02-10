@@ -69,7 +69,7 @@ transform mort:
 
 transform baleine:
     xzoom 1 yzoom 1
-    xpos.3 ypos .3    
+    xpos.3 ypos .3
 
 transform verre:
     xzoom 1 yzoom 1
@@ -77,11 +77,11 @@ transform verre:
 
 transform frigo:
     xzoom 0.5 yzoom 0.5
-    xpos .1 xpos 0.4    
+    xpos .1 xpos 0.4
 
 transform Robert:
     xzoom 1 yzoom 1
-    xpos.2 ypos .3   
+    xpos.2 ypos .3
 
 transform cadavre:
     xzoom 1 yzoom 1
@@ -342,7 +342,7 @@ label se_cacher:
             hide screen countdown
             jump braquer
             hide arme
-    
+
 
 label couloir_cri:
     o "Vous vous dirigez vers le couloir d'où venait le cri."
@@ -768,7 +768,7 @@ label regarder_porte:
         ainsi qu'une sorte d'entité postée devant l'entrée."
 
     menu:
-        "Attaquer les gardes avec votre arme ?" if weapon: 
+        "Attaquer les gardes avec votre arme ?" if weapon:
             hide arme at arme
 
             jump attaquer_arme_porte
@@ -912,7 +912,7 @@ label dead_reset:
     scene bg black
     show mort at mort
     with dissolve
-    ** "Vous êtes mort..."
+    oo "Vous êtes mort..."
 
     $ dead_once = True
     jump start
@@ -934,7 +934,7 @@ label acceptation:
 label double_accept:
     o "Il sort de sa poche une carte de l'endroit et vous montre la sortie dont-il parle."
 <<<<<<< Updated upstream
-    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer," 
+    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer,"
     o  "Robert vous prévient qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite.Robert ouvre la porte et commence à avancer."
 =======

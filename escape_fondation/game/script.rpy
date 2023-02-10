@@ -89,6 +89,11 @@ transform Robert2:
     xzoom 0.75 yzoom 0.75
     xpos .1 ypos .4
 
+transform fin1:
+    xzoom 2 yzoom 2
+    xpos.1 ypos.3
+
+
 # transform Robert2 :
 #     xzoom 1 yzoom 1
 #     xpos.4 ypos .3
@@ -537,6 +542,7 @@ label allie_pas_patient:
     o "Après tout, il a raison, on ne vous nourrit pas bien, voire pas du tout ici."
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
     hide perso3
+    hide perso2
     show sansmains at sansmains
     play sound "/audio/bruit_prendre_3_bonbons.mp3"
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
@@ -773,15 +779,18 @@ label porte_droite:
     scene bg chien at shaking, truecenter
     o "Un grognement se fait entendre en face de vous."
     scene bg chien
+    show chien at chien 
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset
 
 label porte_gauche:
+    scene bg ordi1
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est quasiment vide, au milieu de la salle se trouve un écran cathodique
         avec un ordinateur. A côté de celui-ci se trouve des dossiers, vous ne savez pas
         ce qu'ils contiennent."
+    scene bg ordi2
     o "Un programme semble être lancé sur l'écran."
 
     o "Que faire ?"
@@ -831,6 +840,8 @@ label end_ordi:
     o "Vous fusionnez avec la machine et devenez un être omniscient de la fondation."
     o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central."
 
+    scene black
+    show fin1 at fin1
     oo "FIN"
 
     return
@@ -990,11 +1001,7 @@ label activer_levier2:
 # with dissolve
 # show perso at cacahuette_pos2
 #
-# scene bg ordi1
-# with dissolve
-#
-# scene bg ordi2
-# with dissolve
+
 
 
 label dead_reset:

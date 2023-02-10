@@ -153,8 +153,7 @@ label start:
         o "Une pile de cadavres avec un uniforme orange."
 
     play sound "/audio/bruit_pas.mp3"
-    o "Soudain, des gardes surgissent dans la salle, l'un d'eux a un cadavre dans
-        ses bras."
+    o " Soudain, des gardes surgissent dans la salle, l un deux a un cadavre dans ses bras."
 
     jump choice1
 

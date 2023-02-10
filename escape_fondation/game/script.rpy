@@ -545,7 +545,7 @@ label deux_bonbons:
 
 label gourmand:
     o "Vous avez faim et ne ménagez pas les bonbons"
-    o "Vous sentez une drôle de sensation aux bouts des bras"*
+    o "Vous sentez une drôle de sensation aux bouts des bras"
     o "Vos mains se sont coupées net, le sang coule à flot"
     o "Vous mourrez baigné dans votre sang !"
     jump dead_reset

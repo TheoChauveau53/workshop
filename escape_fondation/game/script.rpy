@@ -397,7 +397,7 @@ label couloir_cri:
     o "Un garde envoie des prisonniers dans une cellule ou se trouve un sorte de
         d'entité en forme de statue."
     hide garde
-    hide garde2Fv 
+    hide garde2Fv
     o "Sur le mur à votre gauche se trouve un levier, ainsi qu'un gros bouton.
         Il n'y a pas d'indication sur ce que font ni le lever, ni le bouton."
     o "Vous trouvez une carte magnétique de niveau 1 posée à côté du bouton."
@@ -483,7 +483,7 @@ label prisonniers_discuter:
             jump vesqui_question
 
 label explications:
-    
+
     d "Je ne sais pas ce que je fais ici, je me suis réveillé ici mais je ne
         me souviens de rien..."
     d2 "Personne ne semble se souvenir, nous non plus ne savons pas comment nous sommes
@@ -525,14 +525,10 @@ label bebette:
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
-<<<<<<< HEAD
-    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier
-=======
     hide chien
-    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier 
->>>>>>> 2d4afee82303457e0529ac71aaf95f831d7249c9
+    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier
     sans vie."
-    
+
 
     scene bg bonbon
     with dissolve
@@ -804,7 +800,7 @@ label porte_droite:
     scene bg chien at shaking, truecenter
     o "Un grognement se fait entendre en face de vous."
     scene bg chien
-    show chien at chien 
+    show chien at chien
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset
@@ -1195,4 +1191,4 @@ label fuite_finale:
     scene black
     show fin1 at fin1
     oo "FIN"
-    return    
+    return

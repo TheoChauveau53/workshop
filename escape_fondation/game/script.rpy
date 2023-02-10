@@ -14,6 +14,7 @@ define d2 = Character('Detenu D-120', color="#11ff66", what_font="/fonts/newspap
 define caca = Character('???', color="#555555", what_font="/fonts/alien2.ttf")
 define waf = Character('Chien', color="#999999", what_font="/fonts/newspaper.ttf")
 define r  = Character('Robert', color="#229933", what_font="/fonts/typewriter_clean.ttf")
+define s = Character('Scientifique')
 
 transform alpha_dissolve:
     alpha 0.0
@@ -1031,7 +1032,7 @@ label mecontentement:
         "Fuir":
             hide screen countdown
             jump cul_de_sac
-
+    
 label paralysie:
     o "Vous êtes paralysé par la peur"
     jump colosse
@@ -1056,3 +1057,20 @@ label cul_de_sac:
     menu:
         "Utiliser la carte":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+label spoted:
+    o "Vous sortez robert de l'eau en hâte! Mais la bête vous a déjà repéré."
+    menu:
+        "Rester discret":
+            jump discretion
+        "Courir vers la sortie":
+            o "La vision de la bête est basée sur le mouvement."
+            jump colosse
+
+label discretion:
+    r "D-123, ne faîtes plus un seul geste. Sa vision est basée sur le mouvement!"
+    o "Vous avancez discrètement vers la sortie, la bête marine n'a plus l'air de vous voir."
+    o "Vous rejoignez la sortie non sans mal."
+
+    o "Robert sort une carte magnétique, il l'utilise pour ouvrir une porte donnant sur une grande pièce sombre avec en son centre quelque chose s'apparentant à une bombe nucléaire."
+    o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
+    o "Un scientifique sortit de sa cachette"

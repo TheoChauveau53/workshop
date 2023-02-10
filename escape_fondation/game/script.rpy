@@ -958,6 +958,7 @@ label suivre_robert:
 
 
         "Attraper la main de Robert pour l'aider":
+            jump spoted
 
 
 label pitie:

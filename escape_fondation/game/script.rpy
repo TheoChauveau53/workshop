@@ -326,7 +326,7 @@ label se_cacher:
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
-        scene bg salledepause at shaking, truecenter
+    scene bg salledepause at shaking, truecenter
     d "Aïe."
     scene bg salledepause
 
@@ -610,7 +610,7 @@ label braquer:
             play sound "/audio/bruit_tire_rafale.mp3"
             scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
-            
+
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -1006,7 +1006,7 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
-    show baleine at baleine 
+    show baleine at baleine
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
@@ -1056,4 +1056,3 @@ label cul_de_sac:
     menu:
         "Utiliser la carte":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    

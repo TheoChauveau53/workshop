@@ -468,6 +468,7 @@ label prisonniers_discuter:
             jump vesqui_question
 
 label explications:
+    
     d "Je ne sais pas ce que je fais ici, je me suis réveillé ici mais je ne
         me souviens de rien..."
     d2 "Personne ne semble se souvenir, nous non plus ne savons pas comment nous sommes
@@ -475,6 +476,7 @@ label explications:
         SCP."
     d2 "Ils font des expériences sur nous et sur des monstres bizarres. Nous on leur sert
         simplement de cobayes."
+    play sound "/audio/cassie_alert_chaos_V2.mp3"
     d1 "Certains se font torturer juste sous prétexte de la scie..."
 
     jump bebette
@@ -500,7 +502,7 @@ label bebette:
     show perso3 at perso3
     d2 "Oh un gros chien !"
     d "COURREZZZ !"
-    play sound "/audio/bruit_porte_2/mp3"
+    play sound "/audio/bruit_porte_2.mp3"
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
     o "Vous et vos nouveaux camarades courrez pour fuire la le monstre."

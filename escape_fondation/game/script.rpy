@@ -543,6 +543,7 @@ label bebette:
     scene bg bonbon
     with dissolve
     show perso3 at perso3
+    play sound "/audio/cassie_alert.mp3"
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
     o "La salle ressemble a une salle d'opération, quelques taches de sang anciennes sont

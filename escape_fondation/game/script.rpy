@@ -49,7 +49,7 @@ transform perso2:
 
 transform perso3:
     xzoom 1 yzoom 1
-    xpos .3 ypos.3
+    xpos .7 ypos.5
 
 transform chien:
     xzoom 0.2 yzoom 0.2
@@ -92,8 +92,8 @@ transform cadavre:
     xpos.5 ypos.5
 
 transform arme:
-    xzoom 0.5 yzoom 0.5
-    xpos .8 ypos .8
+    xzoom 0.2 yzoom 0.2
+    xpos .025 ypos .025
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -259,6 +259,7 @@ label attaque_discret:
 
 label attaque_frontale:
     o "Les gardes vous explosent assez facilement."
+    play sound "/audio/bruit_fusillade.mp3"
     jump dead_reset
 
 label autre_couloir:
@@ -388,8 +389,10 @@ label choice_cellule:
 
 label attaquer_arme_cellule:
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
+    play sound "/audio/bruit_fusillade.mp3"
     o "Par miracle, les gardes, tels des stormtroopers, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
+    play sound "/audio/bruit_sort_et_tire_arme.mp3"
     o "Les deux gardes tombent à terre, ggwp ez"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
@@ -452,6 +455,7 @@ label vesqui_question:
 
 label bebette:
     waf "grrrr..."
+    play sound "/audio/cassie_scp_939_P1.mp3"
     o "L'alarme SCP évadé retentit."
     scene bg couloirchien
     with dissolve

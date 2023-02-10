@@ -14,6 +14,7 @@ define d2 = Character('Detenu D-120', color="#11ff66", what_font="/fonts/newspap
 define caca = Character('???', color="#555555", what_font="/fonts/alien2.ttf")
 define waf = Character('Chien', color="#999999", what_font="/fonts/newspaper.ttf")
 define r  = Character('Robert', color="#229933", what_font="/fonts/typewriter_clean.ttf")
+define s =Character ('Scientifique', color="#4e45ca22",what_font="/fonts/typewriter_clean.ttf")
 
 transform alpha_dissolve:
     alpha 0.0
@@ -93,7 +94,15 @@ transform cadavre:
 
 transform arme:
     xzoom 0.2 yzoom 0.2
-    xpos .025 ypos .025
+    xpos .025  ypos .025
+
+transform sansmains:
+    xzoom 1 yzoom 1
+    xpos.3  ypos.5   
+
+transform scientifique:
+    xzoom 1 yzoom 1
+    xpos.3 ypos.3    
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -105,6 +114,8 @@ init:
     image baleine = "/images/monsters/baleine.png"
     image cadavre = "/images/monsters/cadavre.png"
     image arme = "/images/monsters/arme.png"
+    image sansmains = "/images/monsters/sansmains.png"
+    image scientifique ="/images/monsters/scientifique.png"
 
     $ timer_range = 0
     $ timer_jump = 0
@@ -483,7 +494,7 @@ label bebette:
     scene bg bonbon
     with dissolve
     show perso at perso1
-    show perso3 at perso2
+    show perso3 at perso3
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
     o "La salle ressemble a une salle d'opération, quelques taches de sang anciennes sont
@@ -510,10 +521,13 @@ label allie_pas_patient:
     o "Votre co-détenu perd patience, il a faim."
     o "Après tout, il a raison, on ne vous nourrit pas bien, voire pas du tout ici."
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
+    hide perso3
+    show sansmains at sansmains
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
     o "Votre co-détenu saigne, il se vide de son sang. Ses cris d'agonie font
         résonner la pièce."
     scene bg bonbon
+
     o "L'homme s'écroule net au sol, puni de sa gourmandise."
     o "Vous avez bien fait de ne pas vous précipiter."
 
@@ -534,6 +548,7 @@ label deux_bonbons:
         sont pas piégés, il décide donc de s'en servir a son tour."
     d2 "De toutes façon, qu'est ce qui m'empêche de m'en servir plus ?"
     d2 "miam"
+
     o "Votre allié prends une poignée de bonbons, et les ingurgite d'une traite."
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."

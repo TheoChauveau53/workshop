@@ -103,11 +103,11 @@ transform arme:
 
 transform sansmains:
     xzoom 1 yzoom 1
-    xpos.3  ypos.5   
+    xpos.3  ypos.5
 
 transform scientifique:
     xzoom 1 yzoom 1
-    xpos.3 ypos.3    
+    xpos.3 ypos.3
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -271,7 +271,7 @@ label attaque_discret:
     o "En les fouillant vous trouvez une arme et une carte d'accès."
     play sound "/audio/bruit_pas.mp3"
     o "Vous continuez de marcher et arrivez a une intersection."
-    
+
     jump choice_couloir
 
 label attaque_frontale:
@@ -503,7 +503,7 @@ label bebette:
 
     scene bg bonbon
     with dissolve
-    show perso at perso1
+    show perso at perso
     show perso3 at perso3
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
@@ -634,7 +634,7 @@ label braquer:
             play sound "/audio/bruit_tire_rafale.mp3"
             scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
-            
+
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -969,17 +969,17 @@ label activer_levier2:
 
 # scene bg panneauelectrique
 # with dissolve
-# 
+#
 # scene bg separerapreslevier
 # with dissolve
-# 
+#
 # scene bg salleordi
 # with dissolve
 # show perso at cacahuette_pos2
-# 
+#
 # scene bg ordi1
 # with dissolve
-# 
+#
 # scene bg ordi2
 # with dissolve
 
@@ -1018,8 +1018,8 @@ label double_accept:
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
-    scene bg eau  
-    show Robert at Robert2       
+    scene bg eau
+    show Robert at Robert2
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
     o "Que voulez-vous faire ?"
     menu:
@@ -1057,7 +1057,7 @@ label mecontentement:
         "Fuir":
             hide screen countdown
             jump cul_de_sac
-    
+
 label paralysie:
     o "Vous êtes paralysé par la peur"
     jump colosse

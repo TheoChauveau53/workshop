@@ -128,6 +128,7 @@ label start:
     scene bg black
     o "Vous vous réveillez dans une pièce fermée."
 
+    play music "/audio/musique_ambience.mp3
     scene bg start
     with dissolve
 
@@ -513,6 +514,7 @@ label deux_bonbons:
     show perso3 at perso3
 
     o "Vous décidez de suivre l'indication et de ne vous servir que deux bonbons."
+    play sound "/audio/bruit_prendre_2_bonbons.mp3"
     o "Vous les mangez, c'est la première fois que vous mangez depuis votre réveil ici."
     o "Le goût sucré des bonbons vous apaise."
 
@@ -521,6 +523,7 @@ label deux_bonbons:
     d2 "De toutes façon, qu'est ce qui m'empêche de m'en servir plus ?"
     d2 "miam"
     o "Votre allié prends une poignée de bonbons, et les ingurgite d'une traite."
+    play sound "/audio/bruit_prendre_3_bonbons.mp3"
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."
     o "Les mains votre collègue se détachent de son corps, il saigne, énromement."
@@ -585,7 +588,8 @@ label braquer:
 
     o "Vous prenez les gardes en joue, eux aussi vous menacent"
     menu:
-        "Abattre les deux gardes":
+        "Abattre les deux gplay sound "/audio/bruit_tire_rafale.mp3"ardes":
+            play sound "/audio/bruit_tire_rafale.mp3"
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
@@ -645,7 +649,8 @@ label team_robert:
 
 label mensonge:
     d "Vous mentez! Je ne crois pas un mot de ce que vous dîtes."
-    o "Une bataille fait rage entre vous et l'agent du Chaos. Vous finissez par le mettre à terre et l'exécuter "
+    o "Une bataille fait rage eplay sound "/audio/bruit_sort_et_tire_arme.mp3"ntre vous et l'agent du Chaos. Vous finissez par le mettre à terre et l'exécuter "
+    play sound "/audio/bruit_sort_et_tire_arme.mp3"
     jump abattre
 
 label pourquoi:
@@ -685,9 +690,11 @@ label folie:
     menu:
         "Porte de gauche":
             hide screen countdown
+            play sound "/audio/bruit_porte_1.mp3"
             jump porte_gauche
         "Porte de droite":
             hide screen countdown
+            play sound "/audio/bruit_porte_1.mp3"
             jump porte_droite
 
 label get_bouffed:
@@ -700,6 +707,7 @@ label get_bouffed:
     jump dead_reset
 
 label porte_droite:
+    play sound "/audio/bruit_porte_2.mp3"
     scene bg chien
     with dissolve
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
@@ -711,6 +719,7 @@ label porte_droite:
     jump dead_reset
 
 label porte_gauche:
+    play sound "/audio/bruit_porte_2.mp3"
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est quasiment vide, au milieu de la salle se trouve un écran cathodique
         avec un ordinateur. A côté de celui-ci se trouve des dossiers, vous ne savez pas
@@ -749,6 +758,8 @@ label activer_levier1:
 
     o "Vous activez le levier à votre gauche."
     o "Le levier active une porte de secours et enferme les gardes et les prisonniers."
+    play sound "/audio/bruit_fermeture_porte_blinder.mp3"
+
     o "Vous êtes séparés du groupe."
     o "Vous ne savez toujours pas ce que fait le bouton."
 

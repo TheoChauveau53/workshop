@@ -126,7 +126,7 @@ screen countdown:
 # Le jeu commence ici
 label start:
     scene bg black
-    o "Vous vous réveillez dans un pièce fermée."
+    o "Vous vous réveillez dans une pièce fermée."
 
     scene bg start
     with dissolve
@@ -608,7 +608,7 @@ label abattre:
         "Se reposer quand même":
             jump reposer
         "Fuire la salle de pause":
-            jump salle_vide
+            jump porte_gauche
 label rien_dire:
     o "Un des gardes prit en joue son collègue et l’abattit sèchement."
     hide garde
@@ -933,15 +933,28 @@ label acceptation:
 
 label double_accept:
     o "Il sort de sa poche une carte de l'endroit et vous montre la sortie dont-il parle."
+<<<<<<< Updated upstream
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer," 
     o  "Robert vous prévient qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite.Robert ouvre la porte et commence à avancer."
+=======
+    r "Bien! Nous sommes ici la seule sortie est par ici ! Nous allons prendre un raccourci! Non sans risque évidement !"
+    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
+        qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
+        à la suite."
+    o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
+>>>>>>> Stashed changes
     o "Que voulez-vous faire ?"
     menu:
         "Exprimer son mécontentement":
             jump start #TODO
-        "Le suivre":
+        "Suivre Robert discrètement":
             jump suivre_robert
+
+label suivre_robert:
+    o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
+    o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
+
 
 label pitie:
     o "Les gardes vous mettent une balle entre les deux yeux."

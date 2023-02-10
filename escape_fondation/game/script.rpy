@@ -495,6 +495,7 @@ label bebette:
     show perso3 at perso3
     d2 "Oh un gros chien !"
     d "COURREZZZ !"
+    play sound "/audio/bruit_porte_2/mp3"
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
     o "Vous et vos nouveaux camarades courrez pour fuire la le monstre."
@@ -502,8 +503,8 @@ label bebette:
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
-    o "Le monstre ayant arrêté sa course, les portes se referment sur lui et le corps
-        sans vie d'un des prisonniers que vous avez sauvé."
+    o "Le monstre ayant arrêté sa course, les portes se referment laissan le corps du prisonier 
+    sans vie."
 
     scene bg bonbon
     with dissolve

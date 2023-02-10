@@ -85,7 +85,7 @@ transform Robert:
 
 transform Robert2 :
     xzoom 1 yzoom 1
-    xpos.4 ypos .3    
+    xpos.4 ypos .3
 
 transform cadavre:
     xzoom 1 yzoom 1
@@ -743,7 +743,42 @@ label fouiller:
     o "Les humains qui se trouvent dans ce bâtiment sont soit des gardes, soit des condamnés à
         mort dont la vie n'a plus de 'valeur'. La fondation se sert de ces condamnés pour
         experimenter sur les créatures."
-    o "En continuant de fouiller vous vous rendez compte que "
+    o "En continuant de fouiller vous vous rendez compte que l'infrastructure est elle même une
+        créature SCP et qu'elle peut engendrer l'éveil de pouvoir chez certains humains."
+    o "Il est indiqué dans le dossier que pour arrêter la folie de cette fondation, il suffit
+        d'arrêter le programme sur l'ordinateur."
+
+    menu:
+        "Arrêter le programme de l'ordinateur":
+            jump stop_ordi
+
+label stop_ordi:
+    o "Vous appuyer sur la petite croix de la fenêtre qui tourne sur l'écran."
+    o "Une fenêtre pop-up se lance :"
+
+    menu:
+        "Voulez-vous vraiment quitter le programme ?"
+        "Oui":
+            jump end_ordi
+        "Accepter":
+            jump end_ordi
+        "Yes":
+            jump end_ordi
+
+label end_ordi:
+    pause 2
+    o "Sur l'écran apparaît le message :
+        Vous avez passé le test, vous êtes désormais libre."
+
+    o "Le mur se met a trembler, et une fissure se crée dans celui-ci."
+    o "En sortant la tête du mur vous découvrez les entrailles de la machine."
+    o "En entrant vous fusionnez avec la machine, vos sens se décuplent."
+    o "Vous fusionnez avec la machine et devenez un être omniscient de la fondation."
+    o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central."
+
+    oo "FIN"
+
+    return
 
 label rester_cache:
     $ reste_cache = True
@@ -890,17 +925,17 @@ label activer_levier2:
 
 # scene bg panneauelectrique
 # with dissolve
-# 
+#
 # scene bg separerapreslevier
 # with dissolve
-# 
+#
 # scene bg salleordi
 # with dissolve
 # show perso at cacahuette_pos2
-# 
+#
 # scene bg ordi1
 # with dissolve
-# 
+#
 # scene bg ordi2
 # with dissolve
 
@@ -939,8 +974,8 @@ label double_accept:
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
-    scene bg eau  
-    show Robert at Robert2       
+    scene bg eau
+    show Robert at Robert2
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
     o "Que voulez-vous faire ?"
     menu:

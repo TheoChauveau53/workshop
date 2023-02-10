@@ -960,13 +960,8 @@ label suivre_robert:
         "Le laisser se noyer et s'enfuir":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-<<<<<<< Updated upstream
         "Attraper la main de Robert pour l'aider":
             jump spoted
-=======
-        # "Attraper la main de Robert pour l'aider":
->>>>>>> Stashed changes
 
 label mecontentement:
     o "L'idée de devoir passer à travers cette salle vous déplait"

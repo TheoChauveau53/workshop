@@ -95,7 +95,7 @@ transform fin1:
 
 transform verre:
     xzoom 1 yzoom 1
-    xpos .3 ypos .3    
+    xpos .3 ypos .3
 
 
 # transform Robert2 :
@@ -372,15 +372,15 @@ label se_cacher:
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
-    scene bg salledepause 
+    scene bg salledepause
     d "Aïe."
     scene bg salledepause
 
-    scene bg salledepause 
+    scene bg salledepause
     show garde at garde
     show Robert at Robert
     g1 "Qui est là ?"
-    
+
 
     $ time = 10
     $ timer_range = 10
@@ -411,7 +411,7 @@ label couloir_cri:
     o "Un garde envoie des prisonniers dans une cellule ou se trouve un sorte de
         d'entité en forme de statue."
     hide garde
-    hide garde2 
+    hide garde2
     o "Sur le mur à votre gauche se trouve un levier, ainsi qu'un gros bouton.
         Il n'y a pas d'indication sur ce que font ni le lever, ni le bouton."
     o "Vous trouvez une carte magnétique de niveau 1 posée à côté du bouton."
@@ -774,7 +774,7 @@ label reposer:
     hide garde
     hide garde2
     scene bg monstre
-    
+
     o "Vous tombez dans les pommes et à votre réveil vous êtes attaché sur une chaise dans une grande salle.
         Vous commencez à entendre des gros bruits et à apercevoir une ombre au loin. "
     show verre at verre
@@ -1068,6 +1068,11 @@ label dead_reset:
     with dissolve
     oo "Vous êtes mort..."
 
+    $ reste_cache = False
+    $ porte_active = False
+    $ regarder_porte = False
+    $ levier2  = False
+    $ ignore = False
     $ dead_once = True
     jump start
 
@@ -1185,7 +1190,7 @@ label discretion:
     o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
     show scientifique at scientifique
     o "Un scientifique sortit de sa cachette"
-    
+
     s "NE TOUCHEZ PAS A CA VOUS ALLEZ TOUT FAIRE EXPLOSER!"
     d "C'est vrai ?"
     r "Et bien ma vraie mission est de détruire cette fondation de la SCP"
@@ -1194,7 +1199,7 @@ label discretion:
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
     hide scientifique
     o "Il ponctua la phrase en abattant le scientifique de sang froid."
-    
+
     o "Il finit par appuyer sur le bouton de lancement"
     play sound "/audio/warhead_V2.mp3"
     menu:

@@ -222,6 +222,7 @@ label faire_le_mort:
 label attaquer_gardes:
     d "BASTONNNNNNN!!"
     play sound "/audio/bruit_fusillade.mp3"
+    play sound "/audio/bruit_corp.mp3"
     o "Les gardes vous fument de manière unilatérale."
 
     jump dead_reset
@@ -321,7 +322,7 @@ label choice_couloir:
             jump couloir_oppose
 
 label couloir_oppose:
-    o "Vous décidez de vous éloigner de la d'où venait le cri, ça fait peur."
+    o "Vous décidez de vous éloigner de la d'où venait le cri."
     play sound "/audio/bruit_pas.mp3"
     o "Au bout de quelques temps vous tombez sur une porte, mais au même moment,
         des gardes arrivent, en face de la porte se trouve un distributeur derrière
@@ -416,10 +417,11 @@ label choice_cellule:
 label attaquer_arme_cellule:
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
     play sound "/audio/bruit_fusillade.mp3"
-    o "Par miracle, les gardes, tels des stormtroopers, ne parviennent pas vous mettre
+    o "Par miracle, les gardes, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
     o "Les deux gardes tombent à terre"
+    play sound "/audio/bruit_corp.mp3"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
     o "Ils s'avèrent après vérification occulaire qu'il ne s'agit pas de gardes mais de deux

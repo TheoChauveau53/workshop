@@ -83,6 +83,10 @@ transform Robert:
     xzoom 1 yzoom 1
     xpos.2 ypos .3
 
+transform Robert2 :
+    xzoom 1 yzoom 1
+    xpos.4 ypos .3    
+
 transform cadavre:
     xzoom 1 yzoom 1
     xpos.5 ypos.5
@@ -887,36 +891,21 @@ label activer_levier2:
     jump choice_couloir
 
 
-scene bg panneauelectrique
-with dissolve
-
-scene bg separerapreslevier
-with dissolve
-
-scene bg aurevoircacahuette
-with dissolve
-
-scene bg cacahuettetue
-with dissolve
-
-scene bg couloirchien
-with dissolve
-show chien at cacahuette_pos1
-show perso at cacahuette_pos1
-show perso2 at cacahuette_pos1
-show perso3 at cacahuette_pos1
-
-
-
-scene bg salleordi
-with dissolve
-show perso at cacahuette_pos2
-
-scene bg ordi1
-with dissolve
-
-scene bg ordi2
-with dissolve
+# scene bg panneauelectrique
+# with dissolve
+# 
+# scene bg separerapreslevier
+# with dissolve
+# 
+# scene bg salleordi
+# with dissolve
+# show perso at cacahuette_pos2
+# 
+# scene bg ordi1
+# with dissolve
+# 
+# scene bg ordi2
+# with dissolve
 
 
 label dead_reset:
@@ -945,9 +934,16 @@ label acceptation:
 label double_accept:
     o "Il sort de sa poche une carte de l'endroit et vous montre la sortie dont-il parle."
     r "Bien! Nous sommes ici la seule sortie est par ici ! Nous allons prendre un raccourci! Non sans risque évidement !"
+    hide cadavre
+    hide Robert
+    scene bg portebaleine
+    with dissolve
+    show Robert at Robert
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
+    scene bg eau  
+    show Robert at Robert2       
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
     o "Que voulez-vous faire ?"
     menu:

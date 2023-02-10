@@ -272,6 +272,7 @@ label attaque_discret:
     $ weapon = True
     $ carte_magnetique = True
     scene bg couloir at shaking, truecenter
+    scene bg couloir
     o "Vous attaquez les gardes par derrière : l'effet de surprise
         les rends confus et vous arrivez a les immobiliser et les
         rendre hors d'état de nuire."
@@ -339,7 +340,7 @@ label couloir_oppose:
 
     $ time = 10
     $ timer_range = 10
-    $ timer_jump = 'pas_bouger
+    $ timer_jump = 'pas_bouger'
     show screen countdown
     menu:
         "Prendre la porte":
@@ -471,7 +472,7 @@ label prisonniers_ignorer:
 label prisonniers_discuter:
     o "Vous vous approchez des deux détenus."
     o "L'un deux fait un pas en avant :"
-    g1 "Qui es-tu ?"
+    d1 "Qui es-tu ?"
 
     menu:
         "\"Qu'est ce que ça peut te faire ?\"":
@@ -515,7 +516,9 @@ label bebette:
     show perso2 at perso2
     show perso3 at perso3
     d2 "Oh un gros chien !"
+    scene bg couloirchien at shaking, truecenter
     d "COURREZZZ !"
+    scene bg couloirchien
     play sound "/audio/bruit_porte_2.mp3"
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
@@ -1116,6 +1119,7 @@ label colosse:
     jump dead_reset
 
 label pitie:
+    play sound "/audio/bruit_sort_et_tire_arme.mp3"
     o "Les gardes vous mettent une balle entre les deux yeux."
     jump dead_reset
 
@@ -1146,6 +1150,7 @@ label discretion:
     o "Vous rejoignez la sortie non sans mal."
     play sound "/audio/bruit_ouverture_porte_blinder.mp3"
     o "Robert sort une carte magnétique, il l'utilise pour ouvrir une porte donnant sur une grande pièce sombre avec en son centre quelque chose s'apparentant à une bombe nucléaire."
+    scene bg final1
     o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
     o "Un scientifique sortit de sa cachette"
     show scientifique at scientifique
@@ -1154,8 +1159,9 @@ label discretion:
     r "Et bien ma vraie mission est de détruire cette fondation de la SCP"
     d "Vous m'avez menti?!!"
     r "C'était nécessaire pour que vous m'aidiez à parvenir jusqu'ici!"
-    hide scientifique
+    play sound "/audio/bruit_sort_et_tire_arme.mp3"
     o "Il ponctua la phrase en abattant le scientifique de sang froid."
+    hide scientifique
     o "Il finit par appuyer sur le bouton de lancement"
     play sound "/audio/warhead_V2.mp3"
     menu:
@@ -1164,10 +1170,12 @@ label discretion:
             o "Robert vous écoute à peine et continue à enclencher la bombe."
             o "Enervé, vous cherchez à vous approcher de lui."
             o "Il se retourne, vous voit vous énervé et vous tire dessus."
+            play sound "audio/bruit_sort_et_tire_arme.mp3"
             r "Tu aurais dû m'écouter."
             jump dead_reset
         "Tirer sur Robert":
             o "Vous sortez votre arme et tirez dans la jambe de Robert."
+            play sound "audio/bruit_sort_et_tire_arme.mp3"
             o "Mais il est trop tard, la bombe a été enclenchée."
             jump fuite_finale
         "Aider Robert à faire sauter la bombe":

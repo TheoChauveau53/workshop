@@ -161,7 +161,6 @@ label choice1:
     $ time = 10
     $ timer_range = 10
     $ timer_jump = 'attaquer_gardes'
-
     show screen countdown
     menu:
         o "Que faites-vous ?"
@@ -960,7 +959,45 @@ label suivre_robert:
         "Attraper la main de Robert pour l'aider":
             jump spoted
 
+label mecontentement:
+    o "L'idée de devoir passer à travers cette salle vous déplait"
+    d "Je pense que je vais me trouver un autre chemin!"
+    r "Comment...?"
+    o "Robert n'eut le temps de finir sa phrase que vous étiez déjà parti. Vous en profitez pour lui voler sa carte magnétique de niveau 2 ainsi que sa carte du complexe, étrangement il n'y a pas de sortie d'indiquée."
+    r "Pas de sortie?! Qu'est-ce que ça veut dire?"
+    o "Vous rebroussez donc chemin de nouveau. Errant dans les couloirs vous entendez un rugissement se rapprochant de vous."
+    o "Vous devez réfléchir vite!!"
+    $ time = 3
+    $ timer_range = 3
+    $ timer_jump = 'paralysie'
+    show screen countdown
+    menu:
+        "Fuir":
+            hide screen countdown
+            jump cul_de_sac
+    
+label paralysie:
+    o "Vous êtes paralysé par la peur"
+    jump colosse
+
+label colosse:
+    o "Vous entendez la bête se rapprocher, bientôt elle arrive devant vous, colossale !"
+    o "A son niveau, son simple rugissement vous retourne le coeur."
+    jump dead_reset
 
 label pitie:
     o "Les gardes vous mettent une balle entre les deux yeux."
     jump dead_reset
+
+label cul_de_sac:
+    o "Vous courez aussi vite que vous le pouvez dans les couloirs, la bête se rapproche dangereusement de vous."
+    d "C'est un cul de sac"
+    o "Devant vous une porte"
+    $ time = 3
+    $ timer_range = 3
+    $ timer_jump = 'paralysie'
+    show screen countdown
+    menu:
+        "Utiliser la carte":
+            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    

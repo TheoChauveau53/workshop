@@ -14,7 +14,8 @@ define d2 = Character('Detenu D-120', color="#11ff66", what_font="/fonts/newspap
 define caca = Character('???', color="#555555", what_font="/fonts/alien2.ttf")
 define waf = Character('Chien', color="#999999", what_font="/fonts/newspaper.ttf")
 define r  = Character('Robert', color="#229933", what_font="/fonts/typewriter_clean.ttf")
-define s = Character('Scientifique')
+
+define s =Character ('Scientifique', color="#4e45ca22",what_font="/fonts/typewriter_clean.ttf")
 
 transform alpha_dissolve:
     alpha 0.0
@@ -86,7 +87,7 @@ transform Robert:
 
 transform Robert2 :
     xzoom 1 yzoom 1
-    xpos.4 ypos .3
+    xpos.4 ypos .3    
 
 transform cadavre:
     xzoom 1 yzoom 1
@@ -94,7 +95,15 @@ transform cadavre:
 
 transform arme:
     xzoom 0.2 yzoom 0.2
-    xpos .025 ypos .025
+    xpos .025  ypos .025
+
+transform sansmains:
+    xzoom 1 yzoom 1
+    xpos.3  ypos.5   
+
+transform scientifique:
+    xzoom 1 yzoom 1
+    xpos.3 ypos.3    
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -106,6 +115,8 @@ init:
     image baleine = "/images/monsters/baleine.png"
     image cadavre = "/images/monsters/cadavre.png"
     image arme = "/images/monsters/arme.png"
+    image sansmains = "/images/monsters/sansmains.png"
+    image scientifique ="/images/monsters/scientifique.png"
 
     $ timer_range = 0
     $ timer_jump = 0
@@ -248,24 +259,28 @@ label suivre_gardes:
 label attaque_discret:
     $ weapon = True
     $ carte_magnetique = True
+    scene bg couloir at shaking, truecenter
     o "Vous attaquez les gardes par derrière : l'effet de surprise
         les rends confus et vous arrivez a les immobiliser et les
         rendre hors d'état de nuire."
+    scene bg couloir
     o "En les fouillant vous trouvez une arme et une carte d'accès."
-
+    play sound "/audio/bruit_pas.mp3"
     o "Vous continuez de marcher et arrivez a une intersection."
-
+    
     jump choice_couloir
 
 label attaque_frontale:
     o "Les gardes vous explosent assez facilement."
+    scene bg couloir at shaking, truecenter
     play sound "/audio/bruit_fusillade.mp3"
+    scene bg couloir
     jump dead_reset
 
 label autre_couloir:
     scene bg couloir
     with dissolve
-
+    play sound "/audio/bruit_pas.mp3"
     o "Vous prenez l'autre couloir sans les gardes."
 
     scene bg intersection
@@ -303,6 +318,7 @@ label choice_couloir:
 
 label couloir_oppose:
     o "Vous décidez de vous éloigner de la d'où venait le cri, ça fait peur."
+    play sound "/audio/bruit_pas.mp3"
     o "Au bout de quelques temps vous tombez sur une porte, mais au même moment,
         des gardes arrivent, en face de la porte se trouve un distributeur derrière
         lequel vous pouvez vous cacher."
@@ -484,7 +500,7 @@ label bebette:
     scene bg bonbon
     with dissolve
     show perso at perso1
-    show perso3 at perso2
+    show perso3 at perso3
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
     o "La salle ressemble a une salle d'opération, quelques taches de sang anciennes sont
@@ -511,10 +527,13 @@ label allie_pas_patient:
     o "Votre co-détenu perd patience, il a faim."
     o "Après tout, il a raison, on ne vous nourrit pas bien, voire pas du tout ici."
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
+    hide perso3
+    show sansmains at sansmains
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
     o "Votre co-détenu saigne, il se vide de son sang. Ses cris d'agonie font
         résonner la pièce."
     scene bg bonbon
+
     o "L'homme s'écroule net au sol, puni de sa gourmandise."
     o "Vous avez bien fait de ne pas vous précipiter."
 
@@ -546,7 +565,7 @@ label deux_bonbons:
 
 label gourmand:
     o "Vous avez faim et ne ménagez pas les bonbons"
-    o "Vous sentez une drôle de sensation aux bouts des bras"*
+    o "Vous sentez une drôle de sensation aux bouts des bras"
     o "Vos mains se sont coupées net, le sang coule à flot"
     o "Vous mourrez baigné dans votre sang !"
     jump dead_reset
@@ -611,7 +630,7 @@ label braquer:
             play sound "/audio/bruit_tire_rafale.mp3"
             scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
-
+            
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -946,17 +965,17 @@ label activer_levier2:
 
 # scene bg panneauelectrique
 # with dissolve
-#
+# 
 # scene bg separerapreslevier
 # with dissolve
-#
+# 
 # scene bg salleordi
 # with dissolve
 # show perso at cacahuette_pos2
-#
+# 
 # scene bg ordi1
 # with dissolve
-#
+# 
 # scene bg ordi2
 # with dissolve
 
@@ -995,8 +1014,8 @@ label double_accept:
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
-    scene bg eau
-    show Robert at Robert2
+    scene bg eau  
+    show Robert at Robert2       
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
     o "Que voulez-vous faire ?"
     menu:
@@ -1007,7 +1026,7 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
-    show baleine at baleine
+    show baleine at baleine 
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
@@ -1057,6 +1076,7 @@ label cul_de_sac:
     menu:
         "Utiliser la carte":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 label spoted:
     o "Vous sortez robert de l'eau en hâte! Mais la bête vous a déjà repéré."
     menu:

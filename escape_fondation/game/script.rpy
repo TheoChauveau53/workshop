@@ -15,7 +15,7 @@ define caca = Character('???', color="#555555", what_font="/fonts/alien2.ttf")
 define waf = Character('Chien', color="#999999", what_font="/fonts/newspaper.ttf")
 define r  = Character('Robert', color="#229933", what_font="/fonts/typewriter_clean.ttf")
 
-define s =Character ('Scientifique', color="#4e45ca22",what_font="/fonts/typewriter_clean.ttf")
+define s =Character ('Scientifique', color="#3575ebff",what_font="/fonts/typewriter_clean.ttf")
 
 transform alpha_dissolve:
     alpha 0.0
@@ -115,8 +115,13 @@ transform sansmains:
     xpos.3  ypos.5
 
 transform scientifique:
-    xzoom 1 yzoom 1
-    xpos.3 ypos.3
+    xzoom 0.5 yzoom 0.5
+    xpos.8 ypos.3
+
+transform frigo:
+    xzoom 0.8 yzoom 0.8
+    xpos 0.1 ypos 0.3
+
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -132,6 +137,7 @@ init:
     image scientifique ="/images/monsters/scientifique.png"
     image garde ="/images/monsters/garde.png"
     image verre ="/images/monsters/verre.png"
+    image frigo="/images/monsters/frigo.png"
 
     $ timer_range = 0
     $ timer_jump = 0
@@ -1174,17 +1180,20 @@ label discretion:
     play sound "/audio/bruit_ouverture_porte_blinder.mp3"
     o "Robert sort une carte magnétique, il l'utilise pour ouvrir une porte donnant sur une grande pièce sombre avec en son centre quelque chose s'apparentant à une bombe nucléaire."
     scene bg final1
+    show Robert at Robert
     o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
-    o "Un scientifique sortit de sa cachette"
     show scientifique at scientifique
-    s "NE TOUCHEZ PAS A CA VOUS ALLEZ TOUS FAIRE EXPLOSER!"
+    o "Un scientifique sortit de sa cachette"
+    
+    s "NE TOUCHEZ PAS A CA VOUS ALLEZ TOUT FAIRE EXPLOSER!"
     d "C'est vrai ?"
     r "Et bien ma vraie mission est de détruire cette fondation de la SCP"
     d "Vous m'avez menti?!!"
     r "C'était nécessaire pour que vous m'aidiez à parvenir jusqu'ici!"
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
-    o "Il ponctua la phrase en abattant le scientifique de sang froid."
     hide scientifique
+    o "Il ponctua la phrase en abattant le scientifique de sang froid."
+    
     o "Il finit par appuyer sur le bouton de lancement"
     play sound "/audio/warhead_V2.mp3"
     menu:
@@ -1199,6 +1208,7 @@ label discretion:
         "Tirer sur Robert":
             o "Vous sortez votre arme et tirez dans la jambe de Robert."
             play sound "audio/bruit_sort_et_tire_arme.mp3"
+            hide Robert
             o "Mais il est trop tard, la bombe a été enclenchée."
             jump fuite_finale
         "Aider Robert à faire sauter la bombe":
@@ -1211,6 +1221,7 @@ label discretion:
             jump fuite_finale
 
 label explose:
+    scene bg apresexplosion
     oo "La bombe explose et après quelques minutes, vous vous relevez et voyez les dégâts causés par la bombe: tout avait disparu"
     scene black
     show fin1 at fin1
@@ -1218,7 +1229,10 @@ label explose:
     return
 
 label fuite_finale:
+    scene bg secour
     o "Dans un élan de désespoir, vous tentez la fuite, par une porte de secours."
+    scene bg frigo
+    show frigo at frigo
     o "Derrière cette porte se trouve un vieux frigidaire, vous vous y réfugiez sans trop d'attente."
     o "Cependant ce n'est pas un frigo comme les autres, vous entendez l'explosion, vous sentez ensuite le frigo dans le quel vous êtes tomber."
     oo "Vous sortez ensuite du frigo et voyez toute la fondation détruite, il ne restait rien. C'était un frigo indestructible."

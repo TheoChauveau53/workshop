@@ -759,12 +759,14 @@ label folie:
     o "Vous errez"
     o "Vous devienne fou, la scène a laquelle vous venez d'assiter était des plus atroces."
     scene couloir2 at shaking, truecenter
+    play sound "/audio/cassie_scp_939_P2.mp3"
     o "Vous entendez du bruit venir de derrière vous, le big toutou est de retour."
     scene couloir2
     o "Il y a derrière vous un gros chien, et devant vous se trouve un cul de sac."
     o "A votre gauche, il y a une porte derrière laquelle vous entendez du bruit, le
         stress vous empêche de déterminer ce qu'il y a derrière la porte."
     o "A votre droite, se trouve une porte, totalement silencieuse."
+    play sound "/audio/annonce_n°1.mp3"
 
     $ time = 10
     $ timer_range = 10
@@ -857,6 +859,7 @@ label end_ordi:
 
     o "Le mur se met a trembler, et une fissure se crée dans celui-ci."
     o "En sortant la tête du mur vous découvrez les entrailles de la machine."
+    play sound "/audio/restart.mp3"
     o "En entrant vous fusionnez avec la machine, vos sens se décuplent."
     o "Vous fusionnez avec la machine et devenez un être omniscient de la fondation."
     o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central."

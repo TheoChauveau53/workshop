@@ -543,7 +543,7 @@ label gourmand:
 
 
 label suivre_gardes2:
-    scene bg_soldats
+    scene bg couloir
     o "Vous continuez à suivre les gardes."
     o "Après quelques minutes, ils arrivent dans une grande pièce.  Celle-ci semble être leur salle de pause."
     o "Après quelque minutes les gardes commencent a se désarmer laissant leur armes sans surveillance."
@@ -954,14 +954,19 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
+    show baleine at baleine 
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+<<<<<<< Updated upstream
         "Attraper la main de Robert pour l'aider":
             jump spoted
+=======
+        # "Attraper la main de Robert pour l'aider":
+>>>>>>> Stashed changes
 
 label mecontentement:
     o "L'idée de devoir passer à travers cette salle vous déplait"

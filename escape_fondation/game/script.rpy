@@ -894,7 +894,8 @@ label end_ordi:
     play sound "/audio/restart.mp3"
     o "En entrant vous fusionnez avec la machine, vos sens se décuplent."
     o "Vous fusionnez avec la machine et devenez un être omniscient de la fondation."
-    o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central."
+    o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central"
+    o "Vous êtes la fondation"
 
     scene black
     show fin1 at fin1
@@ -1221,8 +1222,10 @@ label discretion:
             jump fuite_finale
 
 label explose:
-    scene bg apresexplosion
-    oo "La bombe explose et après quelques minutes, vous vous relevez et voyez les dégâts causés par la bombe: tout avait disparu"
+    oo "La bombe explose et après quelques minutes la fondation étant détruite "
+    oo "Votre corps ne réapparrait plus"
+    oo "Vous pouvez reposez en paix"
+
     scene black
     show fin1 at fin1
     oo "FIN"

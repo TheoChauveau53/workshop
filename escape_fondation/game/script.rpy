@@ -43,17 +43,16 @@ transform perso:
     xzoom 1 yzoom 1
     xpos .1 ypos.3
 
-
 transform perso2:
     xzoom 1 yzoom 1
-    xpos .3 ypos.3
+    xpos .3 ypos.5
 
 transform perso3:
     xzoom 1 yzoom 1
     xpos .3 ypos.3
 
-transform Chien:
-    xzoom 1 yzoom 1
+transform chien:
+    xzoom 0.2 yzoom 0.2
     xpos .3 ypos.3
 
 transform garde:
@@ -68,12 +67,40 @@ transform mort:
     xzoom 2 yzoom 2
     xpos.1 ypos.3
 
+transform baleine:
+    xzoom 1 yzoom 1
+    xpos.3 ypos .3    
 
+transform verre:
+    xzoom 1 yzoom 1
+    xpos.3 yzoom .3
 
+transform frigo:
+    xzoom 0.5 yzoom 0.5
+    xpos .1 xpos 0.4    
+
+transform Robert:
+    xzoom 1 yzoom 1
+    xpos.2 ypos .3   
+
+transform cadavre:
+    xzoom 1 yzoom 1
+    xpos.5 ypos.5
+
+transform arme:
+    xzoom 0.5 yzoom 0.5
+    xpos .8 ypos .8
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
     image perso = "/images/monsters/perso.png"
+    image perso2 = "/images/monsters/perso2.png"
+    image perso3 = "/images/monsters/perso3.png"
+    image Robert = "/images/monsters/Robert.png"
+    image verre = "/images/monsters/verre.png"
+    image baleine = "/images/monsters/baleine.png"
+    image cadavre = "/images/monsters/cadavre.png"
+    image arme = "/images/monsters/arme.png"
 
     $ timer_range = 0
     $ timer_jump = 0
@@ -290,10 +317,14 @@ label couloir_oppose:
             jump se_cacher
 
 label se_cacher:
+    scene bg salledepause
+    with dissolve
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
     d "Aïe."
+    show garde at garde
+    show Robert at Robert
     g1 "Qui est là ?"
 
     $ time = 10
@@ -307,9 +338,11 @@ label se_cacher:
             hide screen countdown
             jump rien_dire
         "Les prendre en joue" if weapon:
+            show arme at arme
             hide screen countdown
             jump braquer
-
+            hide arme
+    
 
 label couloir_cri:
     o "Vous vous dirigez vers le couloir d'où venait le cri."
@@ -344,8 +377,10 @@ label choice_cellule:
             jump activer_levier1
 
         "Attaquer les gardes avec l'arme" if weapon:
+            show arme at arme
             hide screen countdown
             jump attaquer_arme_cellule
+            hide arme
 
 label attaquer_arme_cellule:
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
@@ -575,12 +610,14 @@ label abattre:
         "Fuire la salle de pause":
             jump salle_vide
 label rien_dire:
+    o "Un des gardes prit en joue son collègue et l’abattit sèchement."
+    hide garde
+    show cadavre at cadavre
+    o "Que voulez-vous faire ?"
     $ time = 5
     $ timer_range = 5
     $ timer_jump = 'rien_faire'
     show screen countdown
-    o "Un des gardes prit en joue son collègue et l’abattit sèchement."
-    o "Que voulez-vous faire ?"
     menu:
         "Lui demander qui il est":
             hide screen countdown
@@ -596,7 +633,7 @@ label pres_robert:
             jump team_robert
 
 label team_robert:
-    b "Je vous remercie mais pourquoi m'avez vous laissé vivre 'Robert' ?"
+    d "Je vous remercie mais pourquoi m'avez vous laissé vivre 'Robert' ?"
     r "Tout simplement parce que vous étiez en danger il me semble et mon devoir est de vous protéger et de vous faire sortir d'ici!"
     menu:
         "Vous mentez":
@@ -663,8 +700,11 @@ label get_bouffed:
     jump dead_reset
 
 label porte_droite:
+    scene bg chien
+    with dissolve
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est totalement sombre, on n'y voit strictement rien."
+    show chien at chien
     o "Un grognement se fait entendre en face de vous."
     o "La salle silencieuse n'était clairement pas vide."
 
@@ -728,12 +768,16 @@ label regarder_porte:
         ainsi qu'une sorte d'entité postée devant l'entrée."
 
     menu:
-        "Attaquer les gardes avec votre arme ?" if weapon:
+        "Attaquer les gardes avec votre arme ?" if weapon: 
+            hide arme at arme
+
             jump attaquer_arme_porte
         "Attaquer les gardes ?":
             jump attaquer_sans_arme
         "Rebrousser chemin ?":
             jump choice_couloir
+
+            hide arme
 
 label attaquer_sans_arme:
     o "Vous vous faites tirer dessus par les gardes."
@@ -889,8 +933,8 @@ label acceptation:
 
 label double_accept:
     o "Il sort de sa poche une carte de l'endroit et vous montre la sortie dont-il parle."
-    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
-        qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
+    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer," 
+    o  "Robert vous prévient qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite.Robert ouvre la porte et commence à avancer."
     o "Que voulez-vous faire ?"
     menu:

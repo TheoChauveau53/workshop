@@ -1019,7 +1019,7 @@ label rien_faire:
 label acceptation:
     play sound "/audio/annonce_n°3.mp3"
     d "J'accepte de vous suivre, mais vous n'avez pas intérêt à me la faire à l'envers, ou vous le regretterez."
-    r "presson nous !"
+    r "Pressons nous !"
     jump double_accept
 
 label double_accept:

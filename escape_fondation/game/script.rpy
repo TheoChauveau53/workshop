@@ -49,7 +49,7 @@ transform perso2:
 
 transform perso3:
     xzoom 1 yzoom 1
-    xpos .3 ypos.3
+    xpos .7 ypos.5
 
 transform chien:
     xzoom 0.2 yzoom 0.2
@@ -92,8 +92,8 @@ transform cadavre:
     xpos.5 ypos.5
 
 transform arme:
-    xzoom 0.5 yzoom 0.5
-    xpos .8 ypos .8
+    xzoom 0.2 yzoom 0.2
+    xpos .025 ypos .025
 init:
     image cacahuette = "/images/monsters/cacahuette.png"
     image chien = "/images/monsters/chien.png"
@@ -161,7 +161,6 @@ label choice1:
     $ time = 10
     $ timer_range = 10
     $ timer_jump = 'attaquer_gardes'
-
     show screen countdown
     menu:
         o "Que faites-vous ?"
@@ -259,6 +258,7 @@ label attaque_discret:
 
 label attaque_frontale:
     o "Les gardes vous explosent assez facilement."
+    play sound "/audio/bruit_fusillade.mp3"
     jump dead_reset
 
 label autre_couloir:
@@ -313,7 +313,7 @@ label couloir_oppose:
     $ timer_jump = 'dead_reset' #TODO quoi ici
     show screen countdown
     menu:
-        "Porte":
+        "Prendre la porte":
             hide screen countdown
             jump porte_droite
         "Se cacher":
@@ -326,10 +326,16 @@ label se_cacher:
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
+        scene bg salledepause at shaking, truecenter
     d "Aïe."
+    scene bg salledepause
+
     show garde at garde
     show Robert at Robert
+
+    scene bg salledepause at shaking, truecenter
     g1 "Qui est là ?"
+    scene bg salledepause
 
     $ time = 10
     $ timer_range = 10
@@ -388,9 +394,11 @@ label choice_cellule:
 
 label attaquer_arme_cellule:
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
+    play sound "/audio/bruit_fusillade.mp3"
     o "Par miracle, les gardes, tels des stormtroopers, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
-    o "Les deux gardes tombent à terre, ggwp ez"
+    play sound "/audio/bruit_sort_et_tire_arme.mp3"
+    o "Les deux gardes tombent à terre"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
     o "Ils s'avèrent après vérification occulaire qu'il ne s'agit pas de gardes mais de deux
@@ -452,6 +460,7 @@ label vesqui_question:
 
 label bebette:
     waf "grrrr..."
+    play sound "/audio/cassie_scp_939_P1.mp3"
     o "L'alarme SCP évadé retentit."
     scene bg couloirchien
     with dissolve
@@ -535,14 +544,18 @@ label deux_bonbons:
     jump folie
 
 label gourmand:
-    o "Stop bouffer là gros porc"
+    o "Vous avez faim et ne ménagez pas les bonbons"
+    o "Vous sentez une drôle de sensation aux bouts des bras"*
+    o "Vos mains se sont coupées net, le sang coule à flot"
+    o "Vous mourrez baigné dans votre sang !"
     jump dead_reset
 
 
 label suivre_gardes2:
-    scene bg_soldats
+    scene bg couloir
     o "Vous continuez à suivre les gardes."
     o "Après quelques minutes, ils arrivent dans une grande pièce.  Celle-ci semble être leur salle de pause."
+    scene bg salledepause
     o "Après quelque minutes les gardes commencent a se désarmer laissant leur armes sans surveillance."
     menu:
         "Tuer les gardes discrètement":
@@ -551,7 +564,9 @@ label suivre_gardes2:
             jump armes_cacher
 
 label tuer_discret:
+    scene bg salledepause at shaking, truecenter
     o "Vous tuez les gardes."
+    scene bg salledepause
     o "Vous entendez des pas dans le couloir."
     menu:
         "Cacher les corps puis se cacher.":
@@ -591,8 +606,11 @@ label braquer:
     o "Vous prenez les gardes en joue, eux aussi vous menacent"
     menu:
         "Abattre les deux gardes":
+            scene bg salledepause at shaking, truecenter
             play sound "/audio/bruit_tire_rafale.mp3"
+            scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
+            
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -717,7 +735,9 @@ label porte_droite:
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est totalement sombre, on n'y voit strictement rien."
     show chien at chien
+    scene bg chien at shaking, truecenter
     o "Un grognement se fait entendre en face de vous."
+    scene bg chien
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset
@@ -986,16 +1006,54 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
+    show baleine at baleine 
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
         "Attraper la main de Robert pour l'aider":
             jump spoted
 
+label mecontentement:
+    o "L'idée de devoir passer à travers cette salle vous déplait"
+    d "Je pense que je vais me trouver un autre chemin!"
+    r "Comment...?"
+    o "Robert n'eut le temps de finir sa phrase que vous étiez déjà parti. Vous en profitez pour lui voler sa carte magnétique de niveau 2 ainsi que sa carte du complexe, étrangement il n'y a pas de sortie d'indiquée."
+    r "Pas de sortie?! Qu'est-ce que ça veut dire?"
+    o "Vous rebroussez donc chemin de nouveau. Errant dans les couloirs vous entendez un rugissement se rapprochant de vous."
+    o "Vous devez réfléchir vite!!"
+    $ time = 3
+    $ timer_range = 3
+    $ timer_jump = 'paralysie'
+    show screen countdown
+    menu:
+        "Fuir":
+            hide screen countdown
+            jump cul_de_sac
+
+label paralysie:
+    o "Vous êtes paralysé par la peur"
+    jump colosse
+
+label colosse:
+    o "Vous entendez la bête se rapprocher, bientôt elle arrive devant vous, colossale !"
+    o "A son niveau, son simple rugissement vous retourne le coeur."
+    jump dead_reset
 
 label pitie:
     o "Les gardes vous mettent une balle entre les deux yeux."
     jump dead_reset
+
+label cul_de_sac:
+    o "Vous courez aussi vite que vous le pouvez dans les couloirs, la bête se rapproche dangereusement de vous."
+    d "C'est un cul de sac"
+    o "Devant vous une porte"
+    $ time = 3
+    $ timer_range = 3
+    $ timer_jump = 'paralysie'
+    show screen countdown
+    menu:
+        "Utiliser la carte":
+            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    

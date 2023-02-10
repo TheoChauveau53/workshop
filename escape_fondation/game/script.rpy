@@ -388,8 +388,12 @@ label couloir_cri:
     o "Le cri était si inquiétant que vous vous précipitez pour de qui venait le cri."
     o "Vous arrivez à la source du bruit et constatez la scène : "
     scene bg cellule
+    show garde at garde
+    show garde2 at garde2
     o "Un garde envoie des prisonniers dans une cellule ou se trouve un sorte de
         d'entité en forme de statue."
+    hide garde
+    hide garde2Fv 
     o "Sur le mur à votre gauche se trouve un levier, ainsi qu'un gros bouton.
         Il n'y a pas d'indication sur ce que font ni le lever, ni le bouton."
     o "Vous trouvez une carte magnétique de niveau 1 posée à côté du bouton."
@@ -422,15 +426,22 @@ label choice_cellule:
             hide arme
 
 label attaquer_arme_cellule:
+    show garde at garde
+    show garde2 at garde2
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
     play sound "/audio/bruit_fusillade.mp3"
     o "Par miracle, les gardes, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
+    hide garde
+    hide garde2
     o "Les deux gardes tombent à terre"
     play sound "/audio/bruit_corp.mp3"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
+    scene bg couloirchien
+    show perso2 at perso2
+    show perso3 at perso3
     o "Ils s'avèrent après vérification occulaire qu'il ne s'agit pas de gardes mais de deux
         prisonniers que vous avez sauvé."
 
@@ -497,7 +508,6 @@ label bebette:
     scene bg couloirchien
     with dissolve
     show chien at chien
-    show perso at perso
     show perso2 at perso2
     show perso3 at perso3
     d2 "Oh un gros chien !"
@@ -506,16 +516,18 @@ label bebette:
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
     o "Vous et vos nouveaux camarades courrez pour fuire la le monstre."
+    hide perso2
     d1 "AAAAAAAARGRHGERGGHDLGFDBJBJETOPREGUERPOGIR"
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
+    hide chien
     o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier 
     sans vie."
+    
 
     scene bg bonbon
     with dissolve
-    show perso at perso
     show perso3 at perso3
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
@@ -561,7 +573,6 @@ label allie_pas_patient:
 label deux_bonbons:
     scene bg bonbon
     with dissolve
-    show perso at perso
     show perso3 at perso3
 
     o "Vous décidez de suivre l'indication et de ne vous servir que deux bonbons."
@@ -577,7 +588,8 @@ label deux_bonbons:
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."
     play sound "/audio/bruit_prendre_3_bonbons.mp3"
-
+    hide perso3
+    show sansmains at sansmains
     o "Les mains votre collègue se détachent de son corps, il saigne, énromement."
     o "Il n'y a rien que vous puissiez faire, il finit par se vider de son sang."
 

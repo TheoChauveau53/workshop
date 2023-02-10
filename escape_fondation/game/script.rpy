@@ -89,6 +89,11 @@ transform Robert2:
     xzoom 0.75 yzoom 0.75
     xpos .1 ypos .4
 
+transform fin1:
+    xzoom 2 yzoom 2
+    xpos.1 ypos.3
+
+
 # transform Robert2 :
 #     xzoom 1 yzoom 1
 #     xpos.4 ypos .3
@@ -387,8 +392,12 @@ label couloir_cri:
     o "Le cri était si inquiétant que vous vous précipitez pour de qui venait le cri."
     o "Vous arrivez à la source du bruit et constatez la scène : "
     scene bg cellule
+    show garde at garde
+    show garde2 at garde2
     o "Un garde envoie des prisonniers dans une cellule ou se trouve un sorte de
         d'entité en forme de statue."
+    hide garde
+    hide garde2Fv 
     o "Sur le mur à votre gauche se trouve un levier, ainsi qu'un gros bouton.
         Il n'y a pas d'indication sur ce que font ni le lever, ni le bouton."
     o "Vous trouvez une carte magnétique de niveau 1 posée à côté du bouton."
@@ -421,15 +430,22 @@ label choice_cellule:
             hide arme
 
 label attaquer_arme_cellule:
+    show garde at garde
+    show garde2 at garde2
     o "Vous attaquez les deux gardes qui se trouvent devant vous."
     play sound "/audio/bruit_fusillade.mp3"
     o "Par miracle, les gardes, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
+    hide garde
+    hide garde2
     o "Les deux gardes tombent à terre"
     play sound "/audio/bruit_corp.mp3"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
+    scene bg couloirchien
+    show perso2 at perso2
+    show perso3 at perso3
     o "Ils s'avèrent après vérification occulaire qu'il ne s'agit pas de gardes mais de deux
         prisonniers que vous avez sauvé."
 
@@ -467,6 +483,7 @@ label prisonniers_discuter:
             jump vesqui_question
 
 label explications:
+    
     d "Je ne sais pas ce que je fais ici, je me suis réveillé ici mais je ne
         me souviens de rien..."
     d2 "Personne ne semble se souvenir, nous non plus ne savons pas comment nous sommes
@@ -474,6 +491,7 @@ label explications:
         SCP."
     d2 "Ils font des expériences sur nous et sur des monstres bizarres. Nous on leur sert
         simplement de cobayes."
+    play sound "/audio/cassie_alert_chaos_V2.mp3"
     d1 "Certains se font torturer juste sous prétexte de la scie..."
 
     jump bebette
@@ -494,25 +512,30 @@ label bebette:
     scene bg couloirchien
     with dissolve
     show chien at chien
-    show perso at perso
     show perso2 at perso2
     show perso3 at perso3
     d2 "Oh un gros chien !"
     d "COURREZZZ !"
-    play sound "/audio/bruit_porte_2/mp3"
+    play sound "/audio/bruit_porte_2.mp3"
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
     o "Vous et vos nouveaux camarades courrez pour fuire la le monstre."
+    hide perso2
     d1 "AAAAAAAARGRHGERGGHDLGFDBJBJETOPREGUERPOGIR"
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
+<<<<<<< HEAD
     o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier
+=======
+    hide chien
+    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier 
+>>>>>>> 2d4afee82303457e0529ac71aaf95f831d7249c9
     sans vie."
+    
 
     scene bg bonbon
     with dissolve
-    show perso at perso
     show perso3 at perso3
     o "Vous prenez le temps de réaliser ce qu'il vient de vous arriver, mais ce temps est
         vite interrompu, vous vous rendez compte que vous êtes arrivé dans une salle lugubre:"
@@ -541,6 +564,7 @@ label allie_pas_patient:
     o "Après tout, il a raison, on ne vous nourrit pas bien, voire pas du tout ici."
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
     hide perso3
+    hide perso2
     show sansmains at sansmains
     play sound "/audio/bruit_prendre_3_bonbons.mp3"
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
@@ -557,7 +581,6 @@ label allie_pas_patient:
 label deux_bonbons:
     scene bg bonbon
     with dissolve
-    show perso at perso
     show perso3 at perso3
 
     o "Vous décidez de suivre l'indication et de ne vous servir que deux bonbons."
@@ -573,7 +596,8 @@ label deux_bonbons:
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."
     play sound "/audio/bruit_prendre_3_bonbons.mp3"
-
+    hide perso3
+    show sansmains at sansmains
     o "Les mains votre collègue se détachent de son corps, il saigne, énromement."
     o "Il n'y a rien que vous puissiez faire, il finit par se vider de son sang."
 
@@ -718,6 +742,8 @@ label pourquoi:
     menu:
         "Accepter":
             jump double_accept
+        "L'accuser de mentir":
+            jump mensonge
 
 label reposer:
     o "Le temps que vous vous reposiez de nouveaux gardes sont arrivés et vous ont pourchassé,
@@ -778,15 +804,18 @@ label porte_droite:
     scene bg chien at shaking, truecenter
     o "Un grognement se fait entendre en face de vous."
     scene bg chien
+    show chien at chien 
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset
 
 label porte_gauche:
+    scene bg ordi1
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est quasiment vide, au milieu de la salle se trouve un écran cathodique
         avec un ordinateur. A côté de celui-ci se trouve des dossiers, vous ne savez pas
         ce qu'ils contiennent."
+    scene bg ordi2
     o "Un programme semble être lancé sur l'écran."
 
     o "Que faire ?"
@@ -836,6 +865,8 @@ label end_ordi:
     o "Vous fusionnez avec la machine et devenez un être omniscient de la fondation."
     o "Vous ne pouvez plus vous échappez, vous êtes l'ordinateur central."
 
+    scene black
+    show fin1 at fin1
     oo "FIN"
 
     return
@@ -996,11 +1027,7 @@ label activer_levier2:
 # with dissolve
 # show perso at cacahuette_pos2
 #
-# scene bg ordi1
-# with dissolve
-#
-# scene bg ordi2
-# with dissolve
+
 
 
 label dead_reset:
@@ -1057,7 +1084,7 @@ label suivre_robert:
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
-            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            jump porte_gauche
 
         "Attraper la main de Robert pour l'aider":
             jump spoted
@@ -1103,7 +1130,7 @@ label cul_de_sac:
     show screen countdown
     menu:
         "Utiliser la carte":
-            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            jump porte_gauche
 
 label spoted:
     o "Vous sortez robert de l'eau en hâte! Mais la bête vous a déjà repéré."
@@ -1132,3 +1159,40 @@ label discretion:
     o "Il ponctua la phrase en abattant le scientifique de sang froid."
     o "Il finit par appuyer sur le bouton de lancement"
     play sound "/audio/warhead_V2.mp3"
+    menu:
+        "Essayer de raisonner Robert":
+            d "Il y a sans doute un moyen de détruire cet endroit sans mourir avec, non?"
+            o "Robert vous écoute à peine et continue à enclencher la bombe."
+            o "Enervé, vous cherchez à vous approcher de lui."
+            o "Il se retourne, vous voit vous énervé et vous tire dessus."
+            r "Tu aurais dû m'écouter."
+            jump dead_reset
+        "Tirer sur Robert":
+            o "Vous sortez votre arme et tirez dans la jambe de Robert."
+            o "Mais il est trop tard, la bombe a été enclenchée."
+            jump fuite_finale
+        "Aider Robert à faire sauter la bombe":
+            d "Bon très bien, j'imagine que je n'ai plus le temps de m'enfuir de toute façon..."
+            r "Sage décision mon ami!"
+            o "Vous aidez Robert à faire sauter la bombe."
+            o "Au dernier moment, il vous assomme et s'enfuit."
+            jump explose
+        "Fuir":
+            jump fuite_finale
+
+label explose:
+    oo "La bombe explose et après quelques minutes, vous vous relevez et voyez les dégâts causés par la bombe: tout avait disparu"
+    scene black
+    show fin1 at fin1
+    oo "FIN"
+    return
+
+label fuite_finale:
+    o "Dans un élan de désespoir, vous tentez la fuite, par une porte de secours."
+    o "Derrière cette porte se trouve un vieux frigidaire, vous vous y réfugiez sans trop d'attente."
+    o "Cependant ce n'est pas un frigo comme les autres, vous entendez l'explosion, vous sentez ensuite le frigo dans le quel vous êtes tomber."
+    oo "Vous sortez ensuite du frigo et voyez toute la fondation détruite, il ne restait rien. C'était un frigo indestructible."
+    scene black
+    show fin1 at fin1
+    oo "FIN"
+    return    

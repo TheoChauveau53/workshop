@@ -280,7 +280,7 @@ label autre_couloir:
     play sound "/audio/scream.mp3"
 
     oo "..."
-    scene bg intersection
+    scene bg intersection 
 
     o "Vous entendez un cri de détresse inquiétant venant d'un d'un des couloirs en
         face de vous."
@@ -503,6 +503,7 @@ label allie_pas_patient:
     o "Après tout, il a raison, on ne vous nourrit pas bien, voire pas du tout ici."
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
+    scene bg bonbon at shaking,truecenter
     o "Votre co-détenu saigne, il se vide de son sang. Ses cris d'agonie font
         résonner la pièce."
     o "L'homme s'écroule net au sol, puni de sa gourmandise."

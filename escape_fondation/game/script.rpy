@@ -803,6 +803,7 @@ label porte_droite:
     o "La salle est totalement sombre, on n'y voit strictement rien."
     show chien at chien
     scene bg chien at shaking, truecenter
+    show chien at chien
     o "Un grognement se fait entendre en face de vous."
     scene bg chien
     show chien at chien

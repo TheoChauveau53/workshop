@@ -733,6 +733,8 @@ label pourquoi:
     menu:
         "Accepter":
             jump double_accept
+        "L'accuser de mentir"
+            jump mensonge
 
 label reposer:
     o "Le temps que vous vous reposiez de nouveaux gardes sont arrivés et vous ont pourchassé,
@@ -1072,7 +1074,7 @@ label suivre_robert:
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
-            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            jump porte_gauche
 
         "Attraper la main de Robert pour l'aider":
             jump spoted
@@ -1118,7 +1120,7 @@ label cul_de_sac:
     show screen countdown
     menu:
         "Utiliser la carte":
-            jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            jump porte_gauche
 
 label spoted:
     o "Vous sortez robert de l'eau en hâte! Mais la bête vous a déjà repéré."
@@ -1147,3 +1149,40 @@ label discretion:
     o "Il ponctua la phrase en abattant le scientifique de sang froid."
     o "Il finit par appuyer sur le bouton de lancement"
     play sound "/audio/warhead_V2.mp3"
+    menu:
+        "Essayer de raisonner Robert":
+            d "Il y a sans doute un moyen de détruire cet endroit sans mourir avec, non?"
+            o "Robert vous écoute à peine et continue à enclencher la bombe."
+            o "Enervé, vous cherchez à vous approcher de lui."
+            o "Il se retourne, vous voit vous énervé et vous tire dessus."
+            r "Tu aurais dû m'écouter."
+            jump dead_reset
+        "Tirer sur Robert":
+            o "Vous sortez votre arme et tirez dans la jambe de Robert."
+            o "Mais il est trop tard, la bombe a été enclenchée."
+            jump fuite_finale
+        "Aider Robert à faire sauter la bombe":
+            d "Bon très bien, j'imagine que je n'ai plus le temps de m'enfuir de toute façon..."
+            r "Sage décision mon ami!"
+            o "Vous aidez Robert à faire sauter la bombe."
+            o "Au dernier moment, il vous assomme et s'enfuit."
+            jump explose
+        "Fuir":
+            jump fuite_finale
+
+label explose:
+    oo "La bombe explose et après quelques minutes, vous vous relevez et voyez les dégâts causés par la bombe: tout avait disparu"
+    scene black
+    show fin1 at fin1
+    oo "FIN"
+    return
+
+label fuite_finale:
+    o "Dans un élan de désespoir, vous tentez la fuite, par une porte de secours."
+    o "Derrière cette porte se trouve un vieux frigidaire, vous vous y réfugiez sans trop d'attente."
+    o "Cependant ce n'est pas un frigo comme les autres, vous entendez l'explosion, vous sentez ensuite le frigo dans le quel vous êtes tomber."
+    oo "Vous sortez ensuite du frigo et voyez toute la fondation détruite, il ne restait rien. C'était un frigo indestructible."
+    scene black
+    show fin1 at fin1
+    oo "FIN"
+    return    

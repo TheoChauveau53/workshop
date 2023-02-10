@@ -733,7 +733,7 @@ label pourquoi:
     menu:
         "Accepter":
             jump double_accept
-        "L'accuser de mentir"
+        "L'accuser de mentir":
             jump mensonge
 
 label reposer:

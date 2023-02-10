@@ -86,7 +86,7 @@ transform Robert:
 
 transform Robert2 :
     xzoom 1 yzoom 1
-    xpos.4 ypos .3
+    xpos.4 ypos .3    
 
 transform cadavre:
     xzoom 1 yzoom 1
@@ -258,24 +258,28 @@ label suivre_gardes:
 label attaque_discret:
     $ weapon = True
     $ carte_magnetique = True
+    scene bg couloir at shaking, truecenter
     o "Vous attaquez les gardes par derrière : l'effet de surprise
         les rends confus et vous arrivez a les immobiliser et les
         rendre hors d'état de nuire."
+    scene bg couloir
     o "En les fouillant vous trouvez une arme et une carte d'accès."
-
+    play sound "/audio/bruit_pas.mp3"
     o "Vous continuez de marcher et arrivez a une intersection."
-
+    
     jump choice_couloir
 
 label attaque_frontale:
     o "Les gardes vous explosent assez facilement."
+    scene bg couloir at shaking, truecenter
     play sound "/audio/bruit_fusillade.mp3"
+    scene bg couloir
     jump dead_reset
 
 label autre_couloir:
     scene bg couloir
     with dissolve
-
+    play sound "/audio/bruit_pas.mp3"
     o "Vous prenez l'autre couloir sans les gardes."
 
     scene bg intersection
@@ -313,6 +317,7 @@ label choice_couloir:
 
 label couloir_oppose:
     o "Vous décidez de vous éloigner de la d'où venait le cri, ça fait peur."
+    play sound "/audio/bruit_pas.mp3"
     o "Au bout de quelques temps vous tombez sur une porte, mais au même moment,
         des gardes arrivent, en face de la porte se trouve un distributeur derrière
         lequel vous pouvez vous cacher."
@@ -548,7 +553,6 @@ label deux_bonbons:
         sont pas piégés, il décide donc de s'en servir a son tour."
     d2 "De toutes façon, qu'est ce qui m'empêche de m'en servir plus ?"
     d2 "miam"
-
     o "Votre allié prends une poignée de bonbons, et les ingurgite d'une traite."
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."
@@ -625,7 +629,7 @@ label braquer:
             play sound "/audio/bruit_tire_rafale.mp3"
             scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
-
+            
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -960,17 +964,17 @@ label activer_levier2:
 
 # scene bg panneauelectrique
 # with dissolve
-#
+# 
 # scene bg separerapreslevier
 # with dissolve
-#
+# 
 # scene bg salleordi
 # with dissolve
 # show perso at cacahuette_pos2
-#
+# 
 # scene bg ordi1
 # with dissolve
-#
+# 
 # scene bg ordi2
 # with dissolve
 
@@ -1009,8 +1013,8 @@ label double_accept:
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
-    scene bg eau
-    show Robert at Robert2
+    scene bg eau  
+    show Robert at Robert2       
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
     o "Que voulez-vous faire ?"
     menu:
@@ -1021,7 +1025,7 @@ label double_accept:
 
 label suivre_robert:
     o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
-    show baleine at baleine
+    show baleine at baleine 
     o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
     menu:
         "Le laisser se noyer et s'enfuir":
@@ -1071,3 +1075,4 @@ label cul_de_sac:
     menu:
         "Utiliser la carte":
             jump dead_reset # TODO LIER AVEC JOSE LE BG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    

@@ -503,7 +503,7 @@ label bebette:
     o "L'un de vos collègues vient de se faire schlasser par le gros chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
-    o "Le monstre ayant arrêté sa course, les portes se referment laissan le corps du prisonier 
+    o "Le monstre ayant arrêté sa course, les portes se referment laissant le corps du prisonnier 
     sans vie."
 
     scene bg bonbon

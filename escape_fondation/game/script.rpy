@@ -1100,3 +1100,12 @@ label discretion:
     o "Robert sort une carte magnétique, il l'utilise pour ouvrir une porte donnant sur une grande pièce sombre avec en son centre quelque chose s'apparentant à une bombe nucléaire."
     o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
     o "Un scientifique sortit de sa cachette"
+    show scientifique at scientifique
+    s "NE TOUCHEZ PAS A CA VOUS ALLEZ TOUS FAIRE EXPLOSER!"
+    d "C'est vrai ?"
+    r "Et bien ma vraie mission est de détruire cette fondation de la SCP"
+    d "Vous m'avez menti?!!"
+    r "C'était nécessaire pour que vous m'aidiez à parvenir jusqu'ici!"
+    hide scientifique
+    o "Il ponctua la phrase en abattant le scientifique de sang froid."
+    o "Il finit par appuyer sur le bouton de lancement"

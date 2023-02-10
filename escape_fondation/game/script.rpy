@@ -538,6 +538,7 @@ label allie_pas_patient:
     o "Il se précipite vers le bol et sors une dizaine de bonbons d'une traite."
     hide perso3
     show sansmains at sansmains
+    play sound "/audio/bruit_prendre_3_bonbons.mp3"
     o "A peine sort-il sa main du bol que ses mains tombent de sont corps."
     o "Votre co-détenu saigne, il se vide de son sang. Ses cris d'agonie font
         résonner la pièce."
@@ -556,6 +557,7 @@ label deux_bonbons:
     show perso3 at perso3
 
     o "Vous décidez de suivre l'indication et de ne vous servir que deux bonbons."
+    play sound "/audio/bruit_prendre_2_bonbons.mp3"
     o "Vous les mangez, c'est la première fois que vous mangez depuis votre réveil ici."
     o "Le goût sucré des bonbons vous apaise."
 
@@ -566,6 +568,8 @@ label deux_bonbons:
     o "Votre allié prends une poignée de bonbons, et les ingurgite d'une traite."
     o "Seulement, sa gourmandise eut raison de lui. L'indication sur le bol n'était
         pas a ommetre."
+    play sound "/audio/bruit_prendre_3_bonbons.mp3"
+
     o "Les mains votre collègue se détachent de son corps, il saigne, énromement."
     o "Il n'y a rien que vous puissiez faire, il finit par se vider de son sang."
 
@@ -574,6 +578,7 @@ label deux_bonbons:
 
 label gourmand:
     o "Vous avez faim et ne ménagez pas les bonbons"
+    play sound "/audio/bruit_prendre_3_bonbons.mp3"
     o "Vous sentez une drôle de sensation aux bouts des bras"
     o "Vos mains se sont coupées net, le sang coule à flot"
     o "Vous mourrez baigné dans votre sang !"
@@ -664,6 +669,7 @@ label abattre:
             jump porte_gauche
 label rien_dire:
     o "Un des gardes prit en joue son collègue et l’abattit sèchement."
+    play sound "/audio/bruit_tire_rafale.mp3"
     hide garde
     show cadavre at cadavre
     o "Que voulez-vous faire ?"
@@ -877,6 +883,7 @@ label regarder_porte:
 
 label attaquer_sans_arme:
     o "Vous vous faites tirer dessus par les gardes."
+    play sound "/audio/bruit_tire_rafale.mp3"
     jump dead_reset
 
 label attaquer_arme_porte:
@@ -955,12 +962,13 @@ label fixer_entite:
 
 label fuite_entite:
     o "Vous tentez de prendre la fuite."
-    o "A peine vous tournez le regard que votre se fait briser, le monstre vous a eu."
+    o "A peine vous tournez le regard que votre cou se fait briser, le monstre vous a eu."
     jump dead_reset
 
 label activer_levier2:
     $ levier2 = True
     o "Tout en regardant le monstre dans les yeux, vous tirez le levier à côté de vous."
+    play sound "/audio/bruit_fermeture_porte_blinder.mp3"
     o "C'est un levier d'urgence qui referme une porte blindée entre vous et l'entité,
         l'entité se retrouve confinée tandis que vous êtes sain et sauf."
 
@@ -1009,7 +1017,9 @@ label rien_faire:
     jump team_robert
 
 label acceptation:
+    play sound "/audio/annonce_n°3.mp3"
     d "J'accepte de vous suivre, mais vous n'avez pas intérêt à me la faire à l'envers, ou vous le regretterez."
+    r "presson nous !"
     jump double_accept
 
 label double_accept:
@@ -1052,6 +1062,7 @@ label mecontentement:
     r "Comment...?"
     o "Robert n'eut le temps de finir sa phrase que vous étiez déjà parti. Vous en profitez pour lui voler sa carte magnétique de niveau 2 ainsi que sa carte du complexe, étrangement il n'y a pas de sortie d'indiquée."
     r "Pas de sortie?! Qu'est-ce que ça veut dire?"
+    play sound "/audio/annonce_n°2.mp3"
     o "Vous rebroussez donc chemin de nouveau. Errant dans les couloirs vous entendez un rugissement se rapprochant de vous."
     o "Vous devez réfléchir vite!!"
     $ time = 3
@@ -1101,7 +1112,7 @@ label discretion:
     r "D-123, ne faîtes plus un seul geste. Sa vision est basée sur le mouvement!"
     o "Vous avancez discrètement vers la sortie, la bête marine n'a plus l'air de vous voir."
     o "Vous rejoignez la sortie non sans mal."
-
+    play sound "/audio/bruit_ouverture_porte_blinder.mp3"
     o "Robert sort une carte magnétique, il l'utilise pour ouvrir une porte donnant sur une grande pièce sombre avec en son centre quelque chose s'apparentant à une bombe nucléaire."
     o "Robert commence à fouiller les alentours de la bombe. Jusqu'à trouver un terminal de lancement. Il l'ouvre et commence à taper des choses."
     o "Un scientifique sortit de sa cachette"
@@ -1114,3 +1125,4 @@ label discretion:
     hide scientifique
     o "Il ponctua la phrase en abattant le scientifique de sang froid."
     o "Il finit par appuyer sur le bouton de lancement"
+    play sound "/audio/warhead_V2.mp3"

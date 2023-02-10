@@ -132,7 +132,7 @@ label start:
     scene bg black
     o "Vous vous réveillez dans une pièce fermée."
 
-    play music "/audio/musique_ambience.mp3
+    play music "/audio/musique_ambience.mp3"
     scene bg start
     with dissolve
 

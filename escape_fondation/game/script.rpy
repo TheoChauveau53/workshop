@@ -933,17 +933,11 @@ label acceptation:
 
 label double_accept:
     o "Il sort de sa poche une carte de l'endroit et vous montre la sortie dont-il parle."
-<<<<<<< Updated upstream
-    o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer,"
-    o  "Robert vous prévient qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
-        à la suite.Robert ouvre la porte et commence à avancer."
-=======
     r "Bien! Nous sommes ici la seule sortie est par ici ! Nous allons prendre un raccourci! Non sans risque évidement !"
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
         qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
         à la suite."
     o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
->>>>>>> Stashed changes
     o "Que voulez-vous faire ?"
     menu:
         "Exprimer son mécontentement":

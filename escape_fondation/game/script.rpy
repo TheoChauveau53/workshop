@@ -313,7 +313,7 @@ label couloir_oppose:
     $ timer_jump = 'dead_reset' #TODO quoi ici
     show screen countdown
     menu:
-        "Porte":
+        "Prendre la porte":
             hide screen countdown
             jump porte_droite
         "Se cacher":
@@ -326,10 +326,16 @@ label se_cacher:
     o "Vous tentez de vous cacher derrière le distributeur."
     o "En vous postant derrière celui-ci, vous vous cognez le coude ce qui provoque
         un bruit assez conséquent."
+        scene bg salledepause at shaking, truecenter
     d "Aïe."
+    scene bg salledepause
+
     show garde at garde
     show Robert at Robert
+
+    scene bg salledepause at shaking, truecenter
     g1 "Qui est là ?"
+    scene bg salledepause
 
     $ time = 10
     $ timer_range = 10
@@ -392,7 +398,7 @@ label attaquer_arme_cellule:
     o "Par miracle, les gardes, tels des stormtroopers, ne parviennent pas vous mettre
         en danger, et vous parvenez a leur tirer tout les deux dessus."
     play sound "/audio/bruit_sort_et_tire_arme.mp3"
-    o "Les deux gardes tombent à terre, ggwp ez"
+    o "Les deux gardes tombent à terre"
     o "Vous aperçevez à côté des deux corps, deux personnes se tenant debout, vous vous demandez
         un moment si vous voyez double et si vous n'êtes pas fou."
     o "Ils s'avèrent après vérification occulaire qu'il ne s'agit pas de gardes mais de deux
@@ -538,7 +544,10 @@ label deux_bonbons:
     jump folie
 
 label gourmand:
-    o "Stop bouffer là gros porc"
+    o "Vous avez faim et ne ménagez pas les bonbons"
+    o "Vous sentez une drôle de sensation aux bouts des bras"*
+    o "Vos mains se sont coupées net, le sang coule à flot"
+    o "Vous mourrez baigné dans votre sang !"
     jump dead_reset
 
 
@@ -546,6 +555,7 @@ label suivre_gardes2:
     scene bg couloir
     o "Vous continuez à suivre les gardes."
     o "Après quelques minutes, ils arrivent dans une grande pièce.  Celle-ci semble être leur salle de pause."
+    scene bg salledepause
     o "Après quelque minutes les gardes commencent a se désarmer laissant leur armes sans surveillance."
     menu:
         "Tuer les gardes discrètement":
@@ -554,7 +564,9 @@ label suivre_gardes2:
             jump armes_cacher
 
 label tuer_discret:
+    scene bg salledepause at shaking, truecenter
     o "Vous tuez les gardes."
+    scene bg salledepause
     o "Vous entendez des pas dans le couloir."
     menu:
         "Cacher les corps puis se cacher.":
@@ -594,8 +606,11 @@ label braquer:
     o "Vous prenez les gardes en joue, eux aussi vous menacent"
     menu:
         "Abattre les deux gardes":
+            scene bg salledepause at shaking, truecenter
             play sound "/audio/bruit_tire_rafale.mp3"
+            scene bg salledepause
             "Vous tirez, vous abattez le premier garde, le deuxième vous blesse légèrement à l'épaule."
+            
             "Il ne vous tue pas et vous regarde, il n'a pas l'air agressif."
             hide screen countdown
             jump abattre
@@ -720,7 +735,9 @@ label porte_droite:
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est totalement sombre, on n'y voit strictement rien."
     show chien at chien
+    scene bg chien at shaking, truecenter
     o "Un grognement se fait entendre en face de vous."
+    scene bg chien
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset
@@ -979,7 +996,7 @@ label mecontentement:
         "Fuir":
             hide screen countdown
             jump cul_de_sac
-    
+
 label paralysie:
     o "Vous êtes paralysé par la peur"
     jump colosse

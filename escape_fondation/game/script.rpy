@@ -177,7 +177,7 @@ label start:
 
         o "L'identifiant D-123 est noté sur votre vêtement."
         o "Dans la pièce il n'y a que des cadavres portant le même uniforme que vous."
-        o "Mais le plus toublant se trouve juste en face de vous :"
+        o "Mais le plus troublant se trouve juste en face de vous :"
         o "Un cadavre vous ressemblant en tout point tel un jumeau."
     else:
         play sound "/audio/alert_reset_V2.mp3"
@@ -188,7 +188,7 @@ label start:
         o "Une pile de cadavres avec un uniforme orange."
 
     play sound "/audio/bruit_pas.mp3"
-    o " Soudain, des gardes surgissent dans la salle, l un deux a un cadavre dans ses bras."
+    o " Soudain, des gardes surgissent dans la salle, l'un deux a un cadavre dans ses bras."
 
     jump choice1
 
@@ -210,7 +210,7 @@ label choice1:
 
 label faire_le_mort:
 
-    o "Vous décidez de vous coucher par terre et de passer pour mort en esperant
+    o "Vous décidez de vous coucher par terre et de faire le mort en esperant
         que les gardes vous ignorent."
 
     show garde at garde with dissolve
@@ -296,7 +296,7 @@ label attaque_discret:
     jump choice_couloir
 
 label attaque_frontale:
-    o "Les gardes vous explosent assez facilement."
+    o "Les gardes vous neutralise."
     scene bg couloir at shaking, truecenter
     play sound "/audio/bruit_fusillade.mp3"
     scene bg couloir

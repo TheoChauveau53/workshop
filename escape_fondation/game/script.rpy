@@ -242,10 +242,9 @@ label faire_le_mort:
     jump sortie_salle
 
 label attaquer_gardes:
-    d "BASTONNNNNNN!!"
     play sound "/audio/bruit_fusillade.mp3"
     play sound "/audio/bruit_corp.mp3"
-    o "Les gardes vous fument de manière unilatérale."
+    o "Vous commencez à vous lever lorsque les gardes vous tirent dessus et vous tuent."
 
     jump dead_reset
 

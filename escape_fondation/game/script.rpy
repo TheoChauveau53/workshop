@@ -46,7 +46,7 @@ transform cacahuette_pos2:
 
 transform perso:
     xzoom 1 yzoom 1
-    xpos .1 ypos.3
+    xpos .1 ypos.4
 
 transform perso2:
     xzoom 1 yzoom 1
@@ -57,40 +57,40 @@ transform perso3:
     xpos .7 ypos.5
 
 transform chien:
-    xzoom 0.2 yzoom 0.2
-    xpos .3 ypos.3
-
-transform garde:
-    xzoom 1 yzoom 1
-    xpos .7 ypos.3
-
-transform garde2:
     xzoom 1 yzoom 1
     xpos .1 ypos.3
 
+transform garde:
+    xzoom 1 yzoom 1
+    xpos .7 ypos.4
+
+transform garde2:
+    xzoom 1 yzoom 1
+    xpos .1 ypos.4
+
 transform mort:
-    xzoom 2 yzoom 2
-    xpos.1 ypos.3
+    xzoom 1.5 yzoom 1.5
+    xpos.1 ypos.5
 
 transform baleine:
     xzoom 1 yzoom 1
-    xpos.3 ypos .3
+    xpos.3 ypos .4
 
 transform verre:
     xzoom 1 yzoom 1
-    xpos.3 yzoom .3
+    xpos.3 yzoom .4
 
 transform frigo:
     xzoom 0.5 yzoom 0.5
     xpos .1 xpos 0.4
 
 transform Robert:
-    xzoom 1 yzoom 1
-    xpos.2 ypos .3
+    xzoom 0.4 yzoom 0.4
+    xpos.01 ypos .34
 
 transform Robert2:
-    xzoom 0.75 yzoom 0.75
-    xpos .1 ypos .4
+    xzoom 0.4 yzoom 0.4
+    xpos .01 ypos .35
 
 transform fin1:
     xzoom 2 yzoom 2
@@ -530,7 +530,7 @@ label bebette:
     show chien at chien
     show perso2 at perso2
     show perso3 at perso3
-    d2 "Oh un gros chien !"
+    d2 "quel est cette chose!"
     scene bg couloirchien at shaking, truecenter
     d "COURREZZZ !"
     scene bg couloirchien
@@ -793,7 +793,7 @@ label folie:
     o "Vous devienne fou, la scène a laquelle vous venez d'assiter était des plus atroces."
     scene couloir2 at shaking, truecenter
     play sound "/audio/cassie_scp_939_P2.mp3"
-    o "Vous entendez du bruit venir de derrière vous, le big toutou est de retour."
+    o "Vous entendez du bruit venir de derrière vous, le chien est de retour."
     scene couloir2
     o "Il y a derrière vous un gros chien, et devant vous se trouve un cul de sac."
     o "A votre gauche, il y a une porte derrière laquelle vous entendez du bruit, le
@@ -827,16 +827,16 @@ label get_bouffed:
     jump dead_reset
 
 label porte_droite:
-    scene bg chien
+    scene bg monstre
     with dissolve
     o "Vous entrez dans la pièce, et fermez rapidement derrière vous."
     o "La salle est totalement sombre, on n'y voit strictement rien."
     show chien at chien
-    scene bg chien at shaking, truecenter
+    scene bg monstre at shaking, truecenter
     show chien at chien
     o "Un grognement se fait entendre en face de vous."
-    scene bg chien
-    show chien at chien
+    scene bg monstre
+    show chien
     o "La salle silencieuse n'était clairement pas vide."
 
     jump dead_reset

@@ -17,6 +17,9 @@ define r  = Character('Robert', color="#229933", what_font="/fonts/typewriter_cl
 
 define s =Character ('Scientifique', color="#3575ebff",what_font="/fonts/typewriter_clean.ttf")
 
+
+define config.main_menu_music = 'audio/Ajoura_-_The_SCP_Foundation_Main_Theme.mp3'
+
 transform alpha_dissolve:
     alpha 0.0
     linear 0.5 alpha 1.0

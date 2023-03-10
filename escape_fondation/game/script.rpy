@@ -1103,11 +1103,11 @@ label double_accept:
     with dissolve
     show Robert at Robert
     o "Vous continuez votre route avec Robert. Vous arrivez dans une salle. Avant d'y entrer, Robert vous prévient
-        qu'un monstre devrait se trouver dans cette salle et qu'il faudra l'affronter pour arriver à la porte menant
-        à la suite."
+        qu'un monstre devrait se trouver dans cette salle et qu'il faudra éviter de faire le moindre bruit sinon
+        c'est une mort assurer."
     scene bg eau
     show Robert at Robert2
-    o "Robert ouvre la porte et commence à avancer. En arrivant dans la pièce vous vous apercevez que c'est enfaite un plan d'eau géant qui se trouvait derrière cette porte et en son centre un énorme monstre marin"
+    o "Robert ouvre la porte et commence à avancer."
     o "Que voulez-vous faire ?"
     menu:
         "Exprimer son mécontentement":
@@ -1116,16 +1116,15 @@ label double_accept:
             jump suivre_robert
 
 label suivre_robert:
-    o "Robert vous fait signe de le suivre, vous marchez sur un sol mouillé le long du bassin. Robert glisse et chute dans le bassin."
-    hide Robert
-    show Robert at Robert2
+    o "Robert vous fait signe de le suivre, vous marchez entre les morceaux de verre brisé au sol
+    quand soudaint Robert marche dessu."
     show baleine at baleine
-    o "Les remous se font plus rapide et semble se diriger vers l'agent du Chaos."
+    o "Une sorte de chien se diriger vers l'agent du Chaos."
     menu:
-        "Le laisser se noyer et s'enfuir":
+        "Ne rien faire":
             jump porte_gauche
 
-        "Attraper la main de Robert pour l'aider":
+        "Créer une diversion":
             jump spoted
 
 label mecontentement:
@@ -1151,7 +1150,7 @@ label paralysie:
     jump colosse
 
 label colosse:
-    o "Vous entendez la bête se rapprocher, bientôt elle arrive devant vous, colossale !"
+    o "Vous entendez la bête se rapprocher, bientôt elle arrive devant vous !"
     o "A son niveau, son simple rugissement vous retourne le coeur."
     jump dead_reset
 
@@ -1173,12 +1172,12 @@ label cul_de_sac:
             jump porte_gauche
 
 label spoted:
-    o "Vous sortez robert de l'eau en hâte! Mais la bête vous a déjà repéré."
+    o "Vous lancer une reste d'éprouvette au loin, le monstre change de direction."
     menu:
         "Rester discret":
             jump discretion
         "Courir vers la sortie":
-            o "La vision de la bête est basée sur le mouvement."
+            o "La vision de la bête est basée sur le bruit."
             jump colosse
 
 label discretion:
@@ -1239,14 +1238,19 @@ label explose:
     return
 
 label fuite_finale:
-    scene bg secour
-    o "Dans un élan de désespoir, vous tentez la fuite, par une porte de secours."
-    scene bg frigo
-    show frigo at frigo
-    o "Derrière cette porte se trouve un vieux frigidaire, vous vous y réfugiez sans trop d'attente."
-    o "Cependant ce n'est pas un frigo comme les autres, vous entendez l'explosion, vous sentez ensuite le frigo dans le quel vous êtes tomber."
-    oo "Vous sortez ensuite du frigo et voyez toute la fondation détruite, il ne restait rien. C'était un frigo indestructible."
+    scene bg couloirchien
+    o "Vous revenez sur vos pas, en essayant de vous remémorer si vous n'avez pas croiser une sortie."
+    o "Après plusieurs couloir vous remarquer une grande porte blindée."
+    scene bg sortie
+    o "En vous rapprochant vous entendez des cris de terreur et de coup de feu."
+    o "soudain la porte commence a s'ouvrire."
+    scene bg gatebp1
+    o "Après quelque instants vous remarquez qu'une créature pale force l'ouverture de la porte blindée."
+    scene bg gatebp2
+    o "La créature pousse des hurlements en vous regardant, vous remarquez un corps derrière lui."
+    scene bg gatebp3
     scene black
+    o "Vous étiez tellement téroriser que vous ne pouviez réagir, le monstre vous à sauté dessus."
     show fin1 at fin1
     oo "FIN"
     return

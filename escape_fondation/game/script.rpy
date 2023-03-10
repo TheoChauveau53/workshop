@@ -537,10 +537,10 @@ label bebette:
     play sound "/audio/bruit_porte_2.mp3"
     o "Les portes du couloirs se ferment, surement pour tenter de contenir la bestiole
         devant vous."
-    o "Vous et vos nouveaux camarades courrez pour fuire la le monstre."
+    o "Vous et vos nouveaux camarades courrez pour fuire le monstre."
     hide perso2
     d1 "AAAAAAAARGRHGERGGHDLGFDBJBJETOPREGUERPOGIR"
-    o "L'un de vos collègues vient de se faire schlasser par le gros chien"
+    o "L'un de vos collègues vient de se faire tué par une sorte de chien"
     waf "WOOF WOOF GRGR GRRGGRR NOM NOM"
     o "Le chien arrête sa course et se concentre sur son repas fraîchement acquis."
     hide chien
